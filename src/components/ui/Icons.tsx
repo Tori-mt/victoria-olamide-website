@@ -86,3 +86,29 @@ export function TiktokIcon({ size = 16 }: { size?: number }) {
     </svg>
   );
 }
+
+export function FacebookIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M14.5 21v-7.6h2.6l.4-3h-3V8.4c0-.87.24-1.46 1.5-1.46H17.6V4.28C17.32 4.24 16.36 4.16 15.24 4.16c-2.33 0-3.93 1.42-3.93 4.03v2.25H8.7v3h2.6V21h3.2z" />
+    </svg>
+  );
+}
+
+export function LinkIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      aria-hidden="true"
+    >
+      <path d="M9.5 14.5 14.5 9.5" />
+      <path d="M11 6.5 12.3 5.2a3.6 3.6 0 0 1 5.1 5.1L16 11.6" />
+      <path d="M13 17.5 11.7 18.8a3.6 3.6 0 0 1-5.1-5.1L8 12.4" />
+    </svg>
+  );
+}

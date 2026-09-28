@@ -1,11 +1,22 @@
 import { footer, site, social } from "../content/site";
-import { ArrowUpRight, InstagramIcon, LinkedinIcon, MailIcon, TiktokIcon, XIcon } from "./ui/Icons";
+import {
+  ArrowUpRight,
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  LinkIcon,
+  MailIcon,
+  TiktokIcon,
+  XIcon,
+} from "./ui/Icons";
 
 const socialIcons = {
   linkedin: LinkedinIcon,
   instagram: InstagramIcon,
   x: XIcon,
   tiktok: TiktokIcon,
+  facebook: FacebookIcon,
+  nestuge: LinkIcon,
 } as const;
 
 export function Footer() {

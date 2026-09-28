@@ -71,7 +71,7 @@ export const work = {
   eyebrow: "Selected work",
   title: ["The work. ", "What it delivered."],
   intro:
-    "Two engagements where product marketing, go-to-market and growth thinking turned strategy into measurable outcomes.",
+    "Four engagements where product marketing, go-to-market and growth thinking turned strategy into measurable outcomes.",
   cases: [
     {
       num: "01",
@@ -96,6 +96,30 @@ export const work = {
       outcome: "45%",
       outcomeNote: "Q1 adoption growth",
       metrics: ["45% Q1 adoption growth", "5+ partnerships"],
+    },
+    {
+      num: "03",
+      client: "Endow",
+      industry: "Creator platform, Nigeria",
+      role: "Product Marketing Execution Partner",
+      problem:
+        "A creator-focused platform entering the Nigerian market needed to turn a fresh launch into real early usage, fast.",
+      done: "Coordinated the product launch and go-to-market execution, combining positioning, community-led acquisition and influencer activation to drive adoption.",
+      outcome: "600+",
+      outcomeNote: "users in 2 weeks",
+      metrics: ["Fewer than 50 to 600+ users in 2 weeks", "Community-led acquisition"],
+    },
+    {
+      num: "04",
+      client: "Utiva",
+      industry: "Event marketing",
+      role: "Product Marketing · Event Growth",
+      problem:
+        "A time-boxed event needed to convert outreach into real attendance inside a 72-hour window.",
+      done: "Led marketing and audience acquisition for the event. The relationship became a repeat engagement.",
+      outcome: "2,000+",
+      outcomeNote: "attendees in 72 hours",
+      metrics: ["2,000+ event attendees (72h)", "Repeat client engagement"],
     },
   ],
   cta: "Discuss a similar problem",
@@ -184,9 +208,11 @@ export const faq = {
 
 export const social = {
   linkedin: { label: "LinkedIn", url: "https://www.linkedin.com/in/victoria-olamide" },
-  instagram: { label: "Instagram", url: "#" },
-  x: { label: "X", url: "#" },
-  tiktok: { label: "TikTok", url: "#" },
+  instagram: { label: "Instagram", url: "https://www.instagram.com/victoriaolamide__" },
+  x: { label: "X", url: "https://x.com/vickieolamide" },
+  tiktok: { label: "TikTok", url: "https://www.tiktok.com/@victoriaolamide_" },
+  facebook: { label: "Facebook", url: "https://www.facebook.com/olamide.victoria.31" },
+  nestuge: { label: "Nestuge", url: "https://victoriaolamide.nestuge.com" },
 } as const;
 
 export const footer = {
