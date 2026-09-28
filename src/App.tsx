@@ -1,9 +1,9 @@
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
+import { Intro } from "./components/Intro";
 import { Results } from "./components/Results";
 import { Work } from "./components/Work";
 import { About } from "./components/About";
-import { Solutions } from "./components/Solutions";
 import { Expertise } from "./components/Expertise";
 import { FAQ } from "./components/FAQ";
 import { Services } from "./components/Services";
@@ -15,10 +15,10 @@ export default function App() {
       <Navigation />
       <main>
         <Hero />
+        <Intro />
         <Results />
         <Work />
         <About />
-        <Solutions />
         <Expertise />
         <FAQ />
         <Services />

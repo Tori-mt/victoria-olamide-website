@@ -20,7 +20,6 @@ export const navigation = {
   links: [
     { label: "Work", href: "#work" },
     { label: "About", href: "#about" },
-    { label: "Solutions", href: "#solutions" },
     { label: "Expertise", href: "#expertise" },
     { label: "FAQ", href: "#faq" },
   ],
@@ -29,9 +28,13 @@ export const navigation = {
 
 export const hero = {
   eyebrow: "Product Marketing · Go-to-Market · Agentic AI",
+  name: "Victoria Olamide.",
+  tags: ["Product Marketing Strategist", "Go-to-Market · Agentic AI & Growth"],
+} as const;
+
+export const intro = {
   headlineTop: "I build AI-powered systems",
   headlineGold: "for business growth.",
-  positioning: "Product Marketing · Go-to-Market · Agentic AI & Growth",
   supporting:
     "Product marketing and go-to-market thinking, applied with modern AI to solve acquisition, conversion, adoption and operational problems with measurable outcomes.",
   narrative: ["Strategy", "System", "Execution", "Outcome"],
@@ -108,44 +111,8 @@ export const work = {
   cta: "Discuss a similar problem",
 } as const;
 
-export const solutions = {
-  index: "04",
-  eyebrow: "Agentic AI · Solutions",
-  title: ["AI built around ", "business problems."],
-  intro:
-    "AI is not the product story. Business improvement is. I design and build AI-enabled systems that sit inside how a company already operates. Each one is pointed at a specific commercial or operational problem.",
-  areas: [
-    {
-      num: "01",
-      title: "Growth Systems",
-      description: "AI-enabled systems that help businesses acquire, nurture and convert users.",
-    },
-    {
-      num: "02",
-      title: "GTM Systems",
-      description: "Workflows that sharpen research, positioning, launch execution and lead generation.",
-    },
-    {
-      num: "03",
-      title: "Operations",
-      description: "Agentic workflows that remove repetitive manual work and improve execution speed.",
-    },
-    {
-      num: "04",
-      title: "Customer & Product Systems",
-      description: "AI-enabled capabilities supporting adoption, customer experience, research and retention.",
-    },
-    {
-      num: "05",
-      title: "Custom Solutions",
-      description: "Purpose-built Agentic AI systems designed around a specific operational or commercial problem.",
-    },
-  ],
-  note: "The tools are implementation details. The business problem is the point.",
-} as const;
-
 export const expertise = {
-  index: "05",
+  index: "04",
   eyebrow: "Expertise",
   title: "What I do.",
   intro:
@@ -198,7 +165,7 @@ export const about = {
 } as const;
 
 export const faq = {
-  index: "06",
+  index: "05",
   eyebrow: "FAQ",
   title: "Questions before you reach out.",
   intro: "The things most people ask before they message me. If yours is not here, LinkedIn is the fastest way to reach me.",
@@ -208,16 +175,16 @@ export const faq = {
       a: "I combine product marketing, go-to-market strategy and Agentic AI to help businesses grow. In practice that means positioning, launch execution, and AI-enabled systems that improve acquisition, conversion, adoption or operations.",
     },
     {
+      q: "What kind of businesses do you work with?",
+      a: "Founders and startups, product teams, growth teams, executives, and businesses adopting AI, generally anyone with a product that needs positioning, a launch that needs to land, or a workflow that needs to move faster.",
+    },
+    {
       q: "Is this an AI consultancy?",
       a: "No. AI is not the product I sell. It is a tool I use to solve product marketing and go-to-market problems. The strategy comes first, the system gets built around it.",
     },
     {
       q: "Do you build the AI systems yourself, or only advise?",
-      a: "I design and build them. The Agentic AI systems section on this site covers the kinds of problems I build for: growth, GTM, operations and customer or product systems.",
-    },
-    {
-      q: "What kind of businesses do you work with?",
-      a: "Founders and startups, product teams, growth teams, executives, and businesses adopting AI, generally anyone with a product that needs positioning, a launch that needs to land, or a workflow that needs to move faster.",
+      a: "I design and build them, pointed at a specific commercial or operational problem: growth, go-to-market, operations, or customer and product systems. The tools are implementation details. The business problem is the point.",
     },
     {
       q: "What does working together look like?",
@@ -232,18 +199,12 @@ export const faq = {
 } as const;
 
 export const services = {
-  index: "07",
+  index: "06",
   eyebrow: "Work together",
   title: ["Let's build what ", "moves the business."],
   intro:
     "If you have a product that needs positioning, a launch that needs to land, or an operational problem AI could remove, I bring product marketing, GTM and Agentic AI to one table, pointed at a measurable outcome.",
-  audience: [
-    "Founders & startups",
-    "Product teams",
-    "Growth teams",
-    "Executives",
-    "Businesses adopting AI",
-  ],
+  lead: "A product that needs positioning. A launch that needs to land. A workflow AI could remove. That is where I work.",
   primaryCta: { label: "Work With Me", href: "mailto:hello@victoriaolamide.com" },
   secondaryCta: { label: "Book a strategy call", href: "mailto:hello@victoriaolamide.com?subject=Strategy%20Call" },
 } as const;

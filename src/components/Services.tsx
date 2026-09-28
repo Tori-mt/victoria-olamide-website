@@ -25,25 +25,8 @@ export function Services() {
         </div>
 
         <div className="services__panel">
-          <div className="services__who">
-            <p className="services__who-kicker">Who this is for</p>
-            <ul className="services__audience">
-              {services.audience.map((a, i) => (
-                <li className="services__audience-item" key={a}>
-                  <span className="services__audience-num" aria-hidden="true">
-                    0{i + 1}
-                  </span>
-                  {a}
-                </li>
-              ))}
-            </ul>
-          </div>
-
+          <p className="services__lead">{services.lead}</p>
           <div className="services__ctas">
-            <p className="services__lead">
-              A product that needs positioning. A launch that needs to land. A workflow AI could
-              remove. That is where I work.
-            </p>
             <a className="btn btn--gold services__cta" href={services.primaryCta.href}>
               {services.primaryCta.label}
               <ArrowRight className="btn__arrow" />
