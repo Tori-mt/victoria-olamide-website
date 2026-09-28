@@ -72,7 +72,7 @@ export function Work() {
         </div>
 
         <Reveal className="work__foot">
-          <a className="link-line" href="#work-with-me">
+          <a className="link-line" href="mailto:hello@victoriaolamide.com">
             {work.cta}
             <ArrowRight className="link-line__arrow" />
           </a>

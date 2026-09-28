@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero__photo" aria-hidden="true">
-        <Portrait className="portrait--hero" />
+        <Portrait className="portrait--hero" imgSrc="/images/victoria-hero-bg.jpg" />
       </div>
       <div className="hero__scrim" aria-hidden="true" />
 
@@ -32,7 +32,7 @@ export function Hero() {
         </div>
       </div>
 
-      <a className="hero__scroll" href="#intro" aria-label="Scroll to more">
+      <a className="hero__scroll" href="#about" aria-label="Scroll to more">
         <span className="hero__scroll-line" aria-hidden="true" />
         <span className="hero__scroll-label">Scroll</span>
       </a>

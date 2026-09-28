@@ -23,23 +23,13 @@ export const navigation = {
     { label: "Expertise", href: "#expertise" },
     { label: "FAQ", href: "#faq" },
   ],
-  cta: { label: "Work With Me", href: "#work-with-me" },
+  cta: { label: "Work With Me", href: "mailto:hello@victoriaolamide.com" },
 } as const;
 
 export const hero = {
   eyebrow: "Product Marketing · Go-to-Market · Agentic AI",
   name: "Victoria Olamide.",
   tags: ["Product Marketing Strategist", "Go-to-Market · Agentic AI & Growth"],
-} as const;
-
-export const intro = {
-  headlineTop: "I build AI-powered systems",
-  headlineGold: "for business growth.",
-  supporting:
-    "Product marketing and go-to-market thinking, applied with modern AI to solve acquisition, conversion, adoption and operational problems with measurable outcomes.",
-  narrative: ["Strategy", "System", "Execution", "Outcome"],
-  primaryCta: { label: "Work With Me", href: "#work-with-me" },
-  secondaryCta: { label: "View My Work", href: "#work" },
 } as const;
 
 export const results = {
@@ -112,7 +102,7 @@ export const work = {
 } as const;
 
 export const expertise = {
-  index: "04",
+  index: "03",
   eyebrow: "Expertise",
   title: "What I do.",
   intro:
@@ -147,25 +137,19 @@ export const expertise = {
 } as const;
 
 export const about = {
-  index: "03",
   eyebrow: "About",
-  title: ["Product thinking. ", "GTM execution. ", "AI systems."],
+  headlineTop: "I build AI-powered systems",
+  headlineGold: "for business growth.",
   paragraphs: [
-    "I am a product marketing and go-to-market professional whose work now sits where growth strategy meets Agentic AI.",
-    "My focus is the journey a product takes after it is built: positioning, messaging, launch, adoption, and the systems that turn attention into usage, and usage into revenue.",
-    "I apply AI where it changes the outcome: research and insight, go-to-market execution, workflows, and the repetitive work that slows teams down.",
-    "The through-line is simple. Understand the business problem. Apply the right strategy. Build the system. Measure the outcome.",
-  ],
-  principles: [
-    { label: "1", text: "Understand the business problem" },
-    { label: "2", text: "Apply the right strategy" },
-    { label: "3", text: "Build the system" },
-    { label: "4", text: "Measure the outcome" },
+    "Victoria Olamide is a Product Marketing & Growth Strategist helping ambitious founders turn great products into businesses people understand, trust, and choose.",
+    "With 5+ years across product marketing, project management, brand strategy, and business growth, she works at the intersection of AI, positioning, go-to-market strategy, and digital visibility.",
+    "Her approach goes beyond making a product look good. She helps founders uncover what their market actually cares about, sharpen their positioning, communicate their value clearly, and build growth systems that turn attention into adoption, demand, and revenue.",
+    "Through her work with technology-driven brands and startups, Victoria has helped businesses translate complex ideas into compelling market narratives and actionable growth strategies.",
   ],
 } as const;
 
 export const faq = {
-  index: "05",
+  index: "04",
   eyebrow: "FAQ",
   title: "Questions before you reach out.",
   intro: "The things most people ask before they message me. If yours is not here, LinkedIn is the fastest way to reach me.",
@@ -196,17 +180,6 @@ export const faq = {
     },
   ],
   cta: { label: "Connect on LinkedIn", href: "https://www.linkedin.com/in/victoria-olamide" },
-} as const;
-
-export const services = {
-  index: "06",
-  eyebrow: "Work together",
-  title: ["Let's build what ", "moves the business."],
-  intro:
-    "If you have a product that needs positioning, a launch that needs to land, or an operational problem AI could remove, I bring product marketing, GTM and Agentic AI to one table, pointed at a measurable outcome.",
-  lead: "A product that needs positioning. A launch that needs to land. A workflow AI could remove. That is where I work.",
-  primaryCta: { label: "Work With Me", href: "mailto:hello@victoriaolamide.com" },
-  secondaryCta: { label: "Book a strategy call", href: "mailto:hello@victoriaolamide.com?subject=Strategy%20Call" },
 } as const;
 
 export const social = {
