@@ -55,7 +55,7 @@ export function CountUp({
 
   return (
     <span>
-      {prefix}
+      {prefix && <span className="countup__affix">{prefix}</span>}
       {display}
       {suffix}
     </span>

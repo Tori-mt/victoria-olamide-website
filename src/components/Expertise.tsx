@@ -3,7 +3,7 @@ import { Reveal } from "./ui/Reveal";
 
 export function Expertise() {
   return (
-    <section className="section expertise" id="expertise">
+    <section className="section expertise on-light" id="expertise">
       <div className="container">
         <div className="section-head section-head--split">
           <div>

@@ -18,7 +18,7 @@ export function Navigation() {
   return (
     <header className={`nav ${scrolled ? "nav--compact" : ""} ${open ? "nav--open" : ""}`}>
       <div className="nav__inner container">
-        <a href="#top" className="nav__brand" onClick={close} aria-label="Victoria Olamide — home">
+        <a href="#top" className="nav__brand" onClick={close} aria-label="Victoria Olamide, home">
           {site.brand.name}
         </a>
 

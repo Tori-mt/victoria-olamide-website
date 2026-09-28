@@ -3,7 +3,7 @@ import { Reveal } from "./ui/Reveal";
 
 export function Solutions() {
   return (
-    <section className="section solutions" id="solutions">
+    <section className="section solutions on-light" id="solutions">
       <div className="container solutions__grid">
         <div className="solutions__intro">
           <Reveal>

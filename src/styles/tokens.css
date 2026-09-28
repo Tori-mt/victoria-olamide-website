@@ -29,12 +29,27 @@
   /* --- Gradient: restrained brand wash (used sparingly) --- */
   --gradient-brand: linear-gradient(120deg, #f0a020 0%, #d9781a 100%);
 
+  /* --- Color: light-section variants (for alternating section rhythm) --- */
+  --color-bg-light: #faf8f4;
+  --color-bg-light-deep: #f1ead9;
+  --color-ink: #1a1409;
+  --color-ink-muted: rgba(26, 20, 9, 0.68);
+  --color-ink-faint: rgba(26, 20, 9, 0.46);
+  --line-on-light: rgba(26, 20, 9, 0.14);
+  --line-on-light-strong: rgba(26, 20, 9, 0.26);
+  --accent-ink: #8f5209; /* deep amber-gold, reads clearly as text on light backgrounds */
+  --accent-ink-2: #8a4510; /* deep rust-copper, on-light counterpart to accent-2 */
+  --accent-ink-soft: rgba(143, 82, 9, 0.08);
+  --accent-ink-hairline: rgba(143, 82, 9, 0.32);
+  --accent-ink-glow: rgba(143, 82, 9, 0.14);
+
   /* --- Typography ---
-     Hanken Grotesk: refined neo-grotesque (display + body)
-     IBM Plex Mono: micro labels, index numbers, captions     */
-  --font-display: "Hanken Grotesk", "Inter", system-ui, sans-serif;
-  --font-body: "Hanken Grotesk", "Inter", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+     Syne: distinctive geometric display — headlines, names, numerals
+     Manrope: clean humanist sans — body copy
+     DM Mono: micro labels, index numbers, captions                  */
+  --font-display: "Syne", "Hanken Grotesk", system-ui, sans-serif;
+  --font-body: "Manrope", "Hanken Grotesk", system-ui, sans-serif;
+  --font-mono: "DM Mono", "IBM Plex Mono", ui-monospace, monospace;
 
   --text-display: clamp(2.9rem, 6.4vw, 5.5rem);   /* hero headline    */
   --text-h2: clamp(2.1rem, 4.4vw, 3.4rem);        /* section headline */

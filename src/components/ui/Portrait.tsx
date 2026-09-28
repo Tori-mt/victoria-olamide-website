@@ -2,25 +2,26 @@ import { useState } from "react";
 
 interface PortraitProps {
   imgSrc?: string;
+  className?: string;
 }
 
 /**
  * Editorial portrait.
  * Drop Victoria's photo at `/public/images/victoria-portrait.jpg` and it is
  * used automatically. Until then, a composed placeholder with the intended
- * proportions and a `[VICTORIA PORTRAIT]` label is shown — swap and re-deploy.
+ * proportions and a `[VICTORIA PORTRAIT]` label is shown. Swap and re-deploy.
  */
-export function Portrait({ imgSrc = "/images/victoria-portrait.jpg" }: PortraitProps) {
+export function Portrait({ imgSrc = "/images/victoria-portrait.jpg", className }: PortraitProps) {
   const [failed, setFailed] = useState(false);
   const showImage = imgSrc && !failed;
 
   return (
-    <figure className="portrait">
+    <figure className={`portrait${className ? ` ${className}` : ""}`}>
       {showImage ? (
         <img
           className="portrait__img"
           src={imgSrc}
-          alt="Victoria Olamide — product marketing and go-to-market strategist building with Agentic AI"
+          alt="Victoria Olamide, product marketing and go-to-market strategist building with Agentic AI"
           loading="eager"
           onError={() => setFailed(true)}
         />

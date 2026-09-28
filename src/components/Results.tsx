@@ -33,7 +33,7 @@ export function Results() {
   }, []);
 
   return (
-    <section className="section results" id="results" aria-label="Results and outcomes">
+    <section className="section results on-light" id="results" aria-label="Results and outcomes">
       <div className="container">
         <div className="section-head section-head--split">
           <div>

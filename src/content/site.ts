@@ -34,7 +34,7 @@ export const hero = {
   headlineGold: "for business growth.",
   positioning: "Product Marketing · Go-to-Market · Agentic AI & Growth",
   supporting:
-    "Product marketing and go-to-market thinking, applied with modern AI — to solve acquisition, conversion, adoption and operational problems with measurable outcomes.",
+    "Product marketing and go-to-market thinking, applied with modern AI to solve acquisition, conversion, adoption and operational problems with measurable outcomes.",
   narrative: ["Strategy", "System", "Execution", "Outcome"],
   primaryCta: { label: "Work With Me", href: "#work-with-me" },
   secondaryCta: { label: "View My Work", href: "#work" },
@@ -87,7 +87,7 @@ export const work = {
       industry: "Consumer fintech",
       role: "Product Marketing Execution",
       problem:
-        "A consumer product entering a competitive market needed to turn attention into sign-ups — fast.",
+        "A consumer product entering a competitive market needed to turn attention into sign-ups, fast.",
       done: "Led product marketing and go-to-market execution for the launch.",
       outcome: "5,000+",
       outcomeNote: "sign-ups in 24 hours",
@@ -114,7 +114,7 @@ export const solutions = {
   eyebrow: "Agentic AI · Solutions",
   title: ["AI built around ", "business problems."],
   intro:
-    "AI is not the product story. Business improvement is. I design and build AI-enabled systems that sit inside how a company already operates — each one pointed at a specific commercial or operational problem.",
+    "AI is not the product story. Business improvement is. I design and build AI-enabled systems that sit inside how a company already operates. Each one is pointed at a specific commercial or operational problem.",
   areas: [
     {
       num: "01",
@@ -170,7 +170,7 @@ export const expertise = {
     {
       num: "04",
       title: "Growth",
-      description: "Improving acquisition, conversion, adoption and retention — the outcomes that matter.",
+      description: "Improving acquisition, conversion, adoption and retention: the outcomes that matter.",
     },
     {
       num: "05",
@@ -186,7 +186,7 @@ export const about = {
   title: ["Product thinking. ", "GTM execution. ", "AI systems."],
   paragraphs: [
     "I am a product marketing and go-to-market professional whose work now sits where growth strategy meets Agentic AI.",
-    "My focus is the journey a product takes after it is built — positioning, messaging, launch, adoption, and the systems that turn attention into usage, and usage into revenue.",
+    "My focus is the journey a product takes after it is built: positioning, messaging, launch, adoption, and the systems that turn attention into usage, and usage into revenue.",
     "I apply AI where it changes the outcome: research and insight, go-to-market execution, workflows, and the repetitive work that slows teams down.",
     "The through-line is simple. Understand the business problem. Apply the right strategy. Build the system. Measure the outcome.",
   ],
@@ -219,7 +219,7 @@ export const services = {
   eyebrow: "Work together",
   title: ["Let's build what ", "moves the business."],
   intro:
-    "If you have a product that needs positioning, a launch that needs to land, or an operational problem AI could remove — I bring product marketing, GTM and Agentic AI to one table, pointed at a measurable outcome.",
+    "If you have a product that needs positioning, a launch that needs to land, or an operational problem AI could remove, I bring product marketing, GTM and Agentic AI to one table, pointed at a measurable outcome.",
   audience: [
     "Founders & startups",
     "Product teams",
@@ -236,7 +236,7 @@ export const contact = {
   eyebrow: "Contact",
   title: ["Start with the ", "business problem."],
   intro:
-    "Tell me what you need to move — a launch, an adoption number, a workflow — and we will talk about whether and how to build it.",
+    "Tell me what you need to move: a launch, an adoption number, a workflow, and we will talk about whether and how to build it.",
   email: "hello@victoriaolamide.com",
   linkedin: {
     label: "Victoria Olamide",

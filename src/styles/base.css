@@ -111,6 +111,31 @@ ol {
 .section {
   padding-block: var(--section-space);
   position: relative;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ---- Light section variant (editorial alternation, not one flat wash) ---- */
+.section.on-light {
+  --color-bg: var(--color-bg-light);
+  --color-bg-deep: var(--color-bg-light-deep);
+  --color-panel: var(--color-bg-light-deep);
+  --color-text: var(--color-ink);
+  --color-text-muted: var(--color-ink-muted);
+  --color-text-faint: var(--color-ink-faint);
+  --color-line: var(--line-on-light);
+  --color-line-strong: var(--line-on-light-strong);
+  --accent: var(--accent-ink);
+  --accent-2: var(--accent-ink-2);
+  --accent-soft: var(--accent-ink-soft);
+  --accent-hairline: var(--accent-ink-hairline);
+  --accent-glow: var(--accent-ink-glow);
+}
+
+.section.on-light .gradient-brand,
+.section.on-light .btn--gold {
+  background: linear-gradient(120deg, var(--accent-ink) 0%, #b3690f 100%);
+  color: var(--color-bg-light);
 }
 
 /* ---- Section header block ---- */

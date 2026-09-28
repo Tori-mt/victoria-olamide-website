@@ -4,7 +4,7 @@ import { ArrowRight } from "./ui/Icons";
 
 export function Services() {
   return (
-    <section className="section services" id="work-with-me">
+    <section className="section services on-light" id="work-with-me">
       <div className="container">
         <div className="section-head section-head--split">
           <div>

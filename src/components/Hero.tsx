@@ -6,7 +6,10 @@ import { ArrowRight } from "./ui/Icons";
 export function Hero() {
   return (
     <section className="hero" id="top">
-      <div className="hero__bg" aria-hidden="true" />
+      <div className="hero__photo" aria-hidden="true">
+        <Portrait className="portrait--hero" />
+      </div>
+      <div className="hero__scrim" aria-hidden="true" />
 
       <div className="container hero__inner">
         <div className="hero__content">
@@ -14,23 +17,27 @@ export function Hero() {
             <p className="eyebrow">{hero.eyebrow}</p>
           </Reveal>
 
-          <Reveal delay={90}>
-            <h1 className="display display--lg hero__title">
+          <Reveal delay={80}>
+            <p className="hero__name">{site.brand.name}</p>
+          </Reveal>
+
+          <Reveal delay={150}>
+            <h1 className="hero__headline">
               {hero.headlineTop}
               <br />
               <span className="gold">{hero.headlineGold}</span>
             </h1>
           </Reveal>
 
-          <Reveal delay={180}>
+          <Reveal delay={220}>
             <p className="hero__positioning">{hero.positioning}</p>
           </Reveal>
 
-          <Reveal delay={250}>
+          <Reveal delay={270}>
             <p className="hero__support">{hero.supporting}</p>
           </Reveal>
 
-          <Reveal delay={320}>
+          <Reveal delay={330}>
             <div className="hero__actions">
               <a className="btn btn--gold" href={hero.primaryCta.href}>
                 {hero.primaryCta.label}
@@ -42,7 +49,7 @@ export function Hero() {
             </div>
           </Reveal>
 
-          <Reveal delay={400}>
+          <Reveal delay={390}>
             <p className="hero__narrative" aria-label="How Victoria works">
               {hero.narrative.map((step, i) => (
                 <span className="hero__narrative-step" key={step}>
@@ -57,14 +64,6 @@ export function Hero() {
             </p>
           </Reveal>
         </div>
-
-        <Reveal className="hero__media" delay={180}>
-          <Portrait />
-          <p className="hero__media-caption">
-            <span className="hero__media-tag">Product Marketing + Agentic AI</span>
-            <span className="hero__media-note">{site.brand.name}</span>
-          </p>
-        </Reveal>
       </div>
 
       <a className="hero__scroll" href="#results" aria-label="Scroll to results">

@@ -4,7 +4,7 @@ import { ArrowRight } from "./ui/Icons";
 
 export function Work() {
   return (
-    <section className="section work" id="work">
+    <section className="section work on-light" id="work">
       <div className="container">
         <div className="section-head section-head--split">
           <div>
