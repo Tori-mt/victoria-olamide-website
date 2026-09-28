@@ -5,9 +5,8 @@ import { Work } from "./components/Work";
 import { About } from "./components/About";
 import { Solutions } from "./components/Solutions";
 import { Expertise } from "./components/Expertise";
-import { Insights } from "./components/Insights";
+import { FAQ } from "./components/FAQ";
 import { Services } from "./components/Services";
-import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
 export default function App() {
@@ -21,9 +20,8 @@ export default function App() {
         <About />
         <Solutions />
         <Expertise />
-        <Insights />
+        <FAQ />
         <Services />
-        <Contact />
       </main>
       <Footer />
     </>

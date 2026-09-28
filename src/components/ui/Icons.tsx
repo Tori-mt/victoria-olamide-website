@@ -52,3 +52,37 @@ export function MailIcon({ size = 16 }: { size?: number }) {
     </svg>
   );
 }
+
+export function InstagramIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      aria-hidden="true"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function XIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M4 3h3.6l4.55 6.1L17.1 3H20l-6.35 8.02L20.4 21h-3.6l-4.9-6.52L6.6 21H3.7l6.75-8.55L4 3z" />
+    </svg>
+  );
+}
+
+export function TiktokIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M16.5 3c.4 2.1 1.8 3.6 4 3.9v3c-1.5 0-2.9-.4-4-1.2v6.4c0 3.4-2.6 6-6 6-3.3 0-6-2.7-6-6s2.7-6 6-6c.4 0 .8 0 1.1.1v3.1a2.9 2.9 0 1 0 2 2.8V3h2.9z" />
+    </svg>
+  );
+}

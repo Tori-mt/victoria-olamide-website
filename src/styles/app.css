@@ -1,5 +1,5 @@
 /* ============================================================
-   SECTION STYLES — Victoria Olamide
+   SECTION STYLES · Victoria Olamide
    Editorial system: hairline grids, large type, quiet accents.
    ============================================================ */
 
@@ -166,20 +166,16 @@
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  padding-block: calc(var(--nav-h) + clamp(2.5rem, 6vh, 4rem)) clamp(4rem, 8vh, 6rem);
+  align-items: flex-end;
+  padding-block: calc(var(--nav-h) + clamp(2.5rem, 6vh, 4rem)) clamp(3rem, 7vh, 5rem);
   overflow: hidden;
 }
 
-/* ---- Photo: bleeds to the viewport edge, sits behind the name/headline ---- */
+/* ---- Photo: full-bleed hero background, darkened toward the bottom where the name sits ---- */
 .hero__photo {
   position: absolute;
-  inset: 0 0 0 auto;
-  width: clamp(20rem, 46vw, 42rem);
-  height: 100%;
+  inset: 0;
   z-index: 0;
-  -webkit-mask-image: linear-gradient(to left, black 62%, transparent 100%);
-  mask-image: linear-gradient(to left, black 62%, transparent 100%);
 }
 
 .portrait--hero {
@@ -194,7 +190,7 @@
   height: 100%;
   aspect-ratio: auto;
   object-fit: cover;
-  object-position: 50% 20%;
+  object-position: 50% 22%;
   border-radius: 0;
   filter: saturate(0.92);
 }
@@ -212,20 +208,18 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      var(--color-bg) 0%,
-      var(--color-bg) 30%,
-      rgba(26, 20, 9, 0.35) 52%,
-      transparent 78%
-    ),
-    linear-gradient(0deg, var(--color-bg) 0%, transparent 34%);
+  background: linear-gradient(
+    180deg,
+    rgba(21, 16, 7, 0.22) 0%,
+    rgba(21, 16, 7, 0.62) 46%,
+    rgba(21, 16, 7, 0.95) 100%
+  );
 }
 
 .hero__inner {
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .hero__content {
@@ -233,26 +227,26 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-5);
-  max-width: 40rem;
+  max-width: 44rem;
 }
 
 .hero__name {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
-  line-height: 0.98;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-size: var(--text-display);
+  line-height: 0.96;
+  letter-spacing: -0.015em;
   color: var(--color-text);
 }
 
 .hero__headline {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 600;
   line-height: var(--line-height-tight);
   letter-spacing: var(--tracking-tight);
-  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
   text-wrap: balance;
-  margin-top: calc(-1 * var(--space-2));
+  margin-top: var(--space-2);
 }
 
 .hero__headline .gold {
@@ -477,7 +471,7 @@
 .result__value {
   display: block;
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(2.6rem, 4.5vw, 4rem);
   line-height: 1;
   letter-spacing: -0.03em;
@@ -536,7 +530,7 @@
 
 .case-row__client-name {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--text-h3);
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -569,7 +563,7 @@
 
 .case-row__outcome-value {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(2rem, 3.6vw, 3.2rem);
   line-height: 1;
   letter-spacing: -0.03em;
@@ -848,7 +842,7 @@
 
 .expertise-row__title {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(1.5rem, 2.6vw, 2.2rem);
   letter-spacing: -0.025em;
   line-height: 1.05;
@@ -880,62 +874,76 @@
 }
 
 /* ============================================================
-   INSIGHTS
+   FAQ
    ============================================================ */
 
-.insights {
+.faq {
   border-top: 1px solid var(--color-line);
 }
 
-.insights__list {
+.faq__list {
   border-top: 1px solid var(--color-line-strong);
 }
 
-.insight-row {
-  display: grid;
-  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.45fr);
-  gap: var(--space-6);
-  align-items: baseline;
-  padding-block: clamp(1.4rem, 2.6vw, 2rem);
+.faq-row {
   border-bottom: 1px solid var(--color-line);
 }
 
-.insight-row__category {
+.faq-row__question {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 2.5rem) minmax(0, 1fr) minmax(0, 2rem);
+  align-items: center;
+  gap: var(--space-5);
+  padding-block: clamp(1.4rem, 2.6vw, 1.9rem);
+  text-align: left;
+  background: none;
+}
+
+.faq-row__num {
   font-family: var(--font-mono);
   font-size: var(--text-label);
   letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--accent-2);
+  color: var(--color-text-faint);
 }
 
-.insight-row__line {
+.faq-row__q-text {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(1.05rem, 1.8vw, 1.35rem);
   letter-spacing: -0.015em;
   line-height: 1.3;
   color: var(--color-text);
+  transition: color var(--dur-base) var(--ease-out);
 }
 
-.insight-row__line:hover {
+.faq-row__question:hover .faq-row__q-text {
   color: var(--accent);
 }
 
-.insights__foot {
-  margin-top: var(--space-7);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-5);
-  flex-wrap: wrap;
+.faq-row__toggle {
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--accent);
 }
 
-.insights__note {
-  font-family: var(--font-mono);
-  font-size: var(--text-tiny);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-text-faint);
+.faq-row__answer {
+  padding: 0 clamp(0rem, 4vw, 3.4rem) clamp(1.4rem, 2.6vw, 1.9rem) calc(2.5rem + var(--space-5));
+  max-width: 42rem;
+}
+
+.faq-row__answer p {
+  color: var(--color-text-muted);
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+.faq__foot {
+  margin-top: var(--space-7);
+  display: flex;
+  justify-content: flex-start;
 }
 
 /* ============================================================
@@ -1018,95 +1026,6 @@
 }
 
 /* ============================================================
-   CONTACT
-   ============================================================ */
-
-.contact {
-  border-top: 1px solid var(--color-line);
-}
-
-.contact__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-5);
-  max-width: 60rem;
-}
-
-.contact__title {
-  font-size: clamp(3rem, 8vw, 6.5rem);
-}
-
-.contact__intro {
-  color: var(--color-text-muted);
-  font-size: var(--text-lead);
-  line-height: 1.55;
-  max-width: 36rem;
-}
-
-.contact__cta {
-  margin-top: var(--space-2);
-  justify-content: center;
-  padding-inline: 2.4rem;
-}
-
-.contact__channels {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-  margin-top: var(--space-6);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--color-line);
-  width: 100%;
-}
-
-.contact__channel {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  column-gap: var(--space-4);
-  row-gap: var(--space-1);
-  align-items: center;
-  padding: var(--space-4) var(--space-5);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-s);
-  transition:
-    border-color var(--dur-base) var(--ease-out),
-    background var(--dur-base) var(--ease-out);
-}
-
-.contact__channel:hover {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-}
-
-.contact__channel-icon {
-  grid-row: 1 / 3;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-s);
-  border: 1px solid var(--color-line-strong);
-  color: var(--accent);
-}
-
-.contact__channel-kicker {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-text-faint);
-}
-
-.contact__channel-value {
-  font-size: var(--text-body);
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-/* ============================================================
    FOOTER
    ============================================================ */
 
@@ -1114,6 +1033,42 @@
   border-top: 1px solid var(--color-line);
   background: var(--color-bg-deep);
   padding-block: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 3rem);
+}
+
+.footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.footer__top-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.footer__cta {
+  padding-inline: 2.2rem;
+}
+
+.footer__email {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.footer__email:hover {
+  color: var(--accent);
 }
 
 .footer__inner {
@@ -1126,7 +1081,7 @@
 
 .footer__name {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--text-h3);
   letter-spacing: -0.02em;
 }
@@ -1232,21 +1187,33 @@
   .hero {
     min-height: 0;
     display: block;
+    padding-block: calc(var(--nav-h) + 2rem) 3rem;
   }
 
+  /* A tall content-driven column can't cover-crop a square photo without
+     zooming in absurdly, so on narrow screens the photo becomes a contained
+     band up top instead of a full-bleed background behind everything. */
   .hero__photo {
     position: relative;
     inset: auto;
-    width: 100%;
-    height: 62vw;
-    max-height: 26rem;
+    width: calc(100% + var(--gutter) * 2);
+    margin-inline: calc(var(--gutter) * -1);
+    height: 88vw;
+    max-height: 30rem;
     margin-bottom: var(--space-7);
-    -webkit-mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
+  }
+
+  .portrait--hero .portrait__img {
+    object-position: 50% 14%;
   }
 
   .hero__scrim {
-    background: linear-gradient(0deg, var(--color-bg) 0%, transparent 40%);
+    background: linear-gradient(
+      180deg,
+      rgba(21, 16, 7, 0.06) 0%,
+      rgba(21, 16, 7, 0.2) 60%,
+      var(--color-bg) 100%
+    );
   }
 
   .hero__content {
@@ -1336,9 +1303,8 @@
     grid-column: 1 / -1;
   }
 
-  .insight-row {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
+  .faq-row__answer {
+    padding-left: var(--space-4);
   }
 
   .solutions__list {

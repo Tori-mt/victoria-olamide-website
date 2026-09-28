@@ -1,5 +1,5 @@
 /* ============================================================
-   CONTENT — all site copy lives here. Edit to change the site.
+   CONTENT. All site copy lives here. Edit to change the site.
    ============================================================ */
 
 export const site = {
@@ -22,8 +22,7 @@ export const navigation = {
     { label: "About", href: "#about" },
     { label: "Solutions", href: "#solutions" },
     { label: "Expertise", href: "#expertise" },
-    { label: "Insights", href: "#insights" },
-    { label: "Contact", href: "#contact" },
+    { label: "FAQ", href: "#faq" },
   ],
   cta: { label: "Work With Me", href: "#work-with-me" },
 } as const;
@@ -110,7 +109,7 @@ export const work = {
 } as const;
 
 export const solutions = {
-  index: "03",
+  index: "04",
   eyebrow: "Agentic AI · Solutions",
   title: ["AI built around ", "business problems."],
   intro:
@@ -146,7 +145,7 @@ export const solutions = {
 } as const;
 
 export const expertise = {
-  index: "04",
+  index: "05",
   eyebrow: "Expertise",
   title: "What I do.",
   intro:
@@ -181,7 +180,7 @@ export const expertise = {
 } as const;
 
 export const about = {
-  index: "05",
+  index: "03",
   eyebrow: "About",
   title: ["Product thinking. ", "GTM execution. ", "AI systems."],
   paragraphs: [
@@ -198,20 +197,38 @@ export const about = {
   ],
 } as const;
 
-export const insights = {
+export const faq = {
   index: "06",
-  eyebrow: "Insights",
-  title: "Ideas I keep working through.",
-  intro: "Public thinking on the subjects behind the work.",
-  topics: [
-    { category: "Product Marketing", line: "Positioning and messaging that survive contact with the market." },
-    { category: "Go-to-Market", line: "Treating launches as systems, not events." },
-    { category: "Agentic AI", line: "What changes when machines execute the workflow." },
-    { category: "AI-Enabled Growth", line: "Where automation creates compounding, not just speed." },
-    { category: "Product Adoption", line: "Moving past features to actual usage." },
-    { category: "Business Systems", line: "Workflows that turn strategy into execution." },
+  eyebrow: "FAQ",
+  title: "Questions before you reach out.",
+  intro: "The things most people ask before they message me. If yours is not here, LinkedIn is the fastest way to reach me.",
+  items: [
+    {
+      q: "What do you actually do?",
+      a: "I combine product marketing, go-to-market strategy and Agentic AI to help businesses grow. In practice that means positioning, launch execution, and AI-enabled systems that improve acquisition, conversion, adoption or operations.",
+    },
+    {
+      q: "Is this an AI consultancy?",
+      a: "No. AI is not the product I sell. It is a tool I use to solve product marketing and go-to-market problems. The strategy comes first, the system gets built around it.",
+    },
+    {
+      q: "Do you build the AI systems yourself, or only advise?",
+      a: "I design and build them. The Agentic AI systems section on this site covers the kinds of problems I build for: growth, GTM, operations and customer or product systems.",
+    },
+    {
+      q: "What kind of businesses do you work with?",
+      a: "Founders and startups, product teams, growth teams, executives, and businesses adopting AI, generally anyone with a product that needs positioning, a launch that needs to land, or a workflow that needs to move faster.",
+    },
+    {
+      q: "What does working together look like?",
+      a: "The same four steps every time: understand the business problem, apply the right strategy, build the system, measure the outcome. No step gets skipped.",
+    },
+    {
+      q: "How do I start a conversation?",
+      a: "LinkedIn is the quickest way to reach me, or email if you prefer. Either way, tell me the business problem you are trying to solve and we will take it from there.",
+    },
   ],
-  cta: { label: "Follow on LinkedIn", href: "https://www.linkedin.com/in/victoria-olamide" },
+  cta: { label: "Connect on LinkedIn", href: "https://www.linkedin.com/in/victoria-olamide" },
 } as const;
 
 export const services = {
@@ -231,23 +248,18 @@ export const services = {
   secondaryCta: { label: "Book a strategy call", href: "mailto:hello@victoriaolamide.com?subject=Strategy%20Call" },
 } as const;
 
-export const contact = {
-  index: "08",
-  eyebrow: "Contact",
-  title: ["Start with the ", "business problem."],
-  intro:
-    "Tell me what you need to move: a launch, an adoption number, a workflow, and we will talk about whether and how to build it.",
-  email: "hello@victoriaolamide.com",
-  linkedin: {
-    label: "Victoria Olamide",
-    url: "https://www.linkedin.com/in/victoria-olamide",
-  },
-  cta: { label: "Start a Conversation", href: "mailto:hello@victoriaolamide.com" },
+export const social = {
+  linkedin: { label: "LinkedIn", url: "https://www.linkedin.com/in/victoria-olamide" },
+  instagram: { label: "Instagram", url: "#" },
+  x: { label: "X", url: "#" },
+  tiktok: { label: "TikTok", url: "#" },
 } as const;
 
 export const footer = {
   name: "Victoria Olamide",
   positioning: "Product Marketing Strategist · Go-to-Market · Agentic AI & Growth",
+  eyebrow: "Let's connect",
+  cta: { label: "Connect on LinkedIn", href: "https://www.linkedin.com/in/victoria-olamide" },
   copyright: "© 2026 Victoria Olamide",
   note: "Product marketing. Go-to-market. Agentic AI. Built for growth.",
 } as const;

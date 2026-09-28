@@ -1,6 +1,6 @@
-import { services } from "../content/site";
+import { services, social } from "../content/site";
 import { Reveal } from "./ui/Reveal";
-import { ArrowRight } from "./ui/Icons";
+import { ArrowRight, ArrowUpRight } from "./ui/Icons";
 
 export function Services() {
   return (
@@ -51,6 +51,15 @@ export function Services() {
             <a className="link-line services__cta-link" href={services.secondaryCta.href}>
               {services.secondaryCta.label}
               <ArrowRight className="link-line__arrow" />
+            </a>
+            <a
+              className="link-line services__cta-link"
+              href={social.linkedin.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Or connect on LinkedIn
+              <ArrowUpRight className="link-line__arrow" />
             </a>
           </div>
         </div>
