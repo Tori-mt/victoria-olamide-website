@@ -249,7 +249,6 @@ def page() -> str:
         <a class="btn btn-gold pulse" href="https://opptiq.victoriaolamide.com/signup" target="_blank" rel="noopener">Get your free analysis &rarr;</a>
         <a class="btn btn-line" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener" data-install>Install the app</a>
       </div>
-      <small class="opq-note">Get your free analysis. No card needed.</small>
     </div>
     <div class="opq-phone rv" aria-hidden="true">
       <div class="phone"><span class="notch"></span><img src="/site/img/opptiq-phone.jpg" alt="" width="640" height="1280" loading="lazy" /></div>
