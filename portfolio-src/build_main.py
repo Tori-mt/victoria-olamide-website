@@ -250,7 +250,8 @@ def page() -> str:
     <div class="rv">
       <span class="eyebrow">Content &amp; creators</span>
       <h2>Product marketing for <em class="s">creators.</em></h2>
-      <p>I teach creators and professionals how to position what they know, package it and get paid for it. New series every week on Instagram, Facebook, LinkedIn, X and TikTok.</p>
+      <p>Book a call with me to build a content system that saves you stress and converts followers into paying customers, without you lifting a finger every day.</p>
+      <div class="row" style="margin-top:1.3rem"><a class="btn btn-gold" href="{CAL}" target="_blank" rel="noopener">Book a strategy call &rarr;</a></div>
       <div class="socials">
         <a href="https://www.instagram.com/victoriaolamide__" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.linkedin.com/in/victoria-olamide" target="_blank" rel="noopener">LinkedIn</a>
@@ -321,12 +322,11 @@ def page() -> str:
         <li><a href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener">Opptiq</a></li>
         <li><a href="/portfolio/ai-systems">AI Agents</a></li>
         <li><a href="/portfolio/ai-systems#library">AI Library</a></li>
-        <li><a href="{CREATAWS}" target="_blank" rel="noopener">Creataws</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul></div>
       <div><h4>Company</h4><ul>
         <li><a href="/portfolio/about">About me</a></li>
-        <li><a href="#creators">Creators</a></li>
+        <li><a href="{CREATAWS}" target="_blank" rel="noopener">Creataws</a></li>
         <li><a href="{MAIL}" data-contact>Contact me</a></li>
         <li><a href="{CAL}" target="_blank" rel="noopener">Book a strategy call</a></li>
       </ul></div>
