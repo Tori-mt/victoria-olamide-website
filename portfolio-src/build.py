@@ -5,6 +5,9 @@ front matter:  title: ... / desc: ... / nav: ...  then a line with ---.
 Run:  python portfolio-src/build.py
 """
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from logo import monogram
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / "public" / "portfolio"
@@ -12,7 +15,7 @@ SITE = "https://victoriaolamide.com"
 CALENDLY = "https://calendly.com/hello-victoriaolamide/30min"
 
 PAGES = {
-    "home": "",
+    "product-marketing": "product-marketing",
     "resume": "resume",
     "work": "work",
     "achievements": "achievements",
@@ -20,7 +23,7 @@ PAGES = {
     "about": "about",
 }
 NAV = [
-    ("home", "Home", "/portfolio"),
+    ("product-marketing", "Home", "/portfolio/product-marketing"),
     ("resume", "Résumé", "/portfolio/resume"),
     ("work", "My Work", "/portfolio/work"),
     ("ai-systems", "AI Agents", "/portfolio/ai-systems"),
@@ -55,7 +58,7 @@ LAYOUT = """<!doctype html>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="/portfolio" aria-label="Victoria Olamide portfolio home">
-      <span class="brand-mark">VO</span><span class="brand-name">Victoria Olamide</span>
+      {logo}<span class="brand-name">Victoria Olamide</span>
     </a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav-links"><span>Menu</span></button>
     <ul class="nav-links" id="nav-links">
@@ -130,7 +133,7 @@ def main() -> None:
         path = f"/portfolio/{sub}".rstrip("/")
         html = LAYOUT.format(
             title=meta["title"], desc=meta["desc"], url=SITE + path, site=SITE,
-            nav=nav, body=body.strip(), v=v, cal=CALENDLY,
+            nav=nav, body=body.strip(), v=v, cal=CALENDLY, logo=monogram(38, uid='nav'),
             cta_eyebrow=meta.get("cta", "Let's work together"),
         )
         target = OUT / sub / "index.html" if sub else OUT / "index.html"
@@ -139,5 +142,14 @@ def main() -> None:
         print("built", target.relative_to(OUT.parent.parent))
 
 
+def build_hub() -> None:
+    import time
+    raw = (ROOT / "pages" / "hub.html").read_text(encoding="utf-8")
+    html = raw.replace("{{logo}}", monogram(76, uid="hub")).replace("{{calendly}}", CALENDLY).replace("{{v}}", str(int(time.time())))
+    (OUT / "index.html").write_text(html, encoding="utf-8")
+    print("built public/portfolio/index.html (hub)")
+
+
 if __name__ == "__main__":
     main()
+    build_hub()

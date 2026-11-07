@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Victoria Olamide | Portfolio</title>
+<meta name="description" content="Portfolio of Victoria Olamide: AI product marketing, go-to-market and the AI agents and products she builds." />
+<link rel="canonical" href="https://victoriaolamide.com/portfolio" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Victoria Olamide | Portfolio" />
+<meta property="og:description" content="AI product marketing, go-to-market and the AI agents and products I build." />
+<meta property="og:url" content="https://victoriaolamide.com/portfolio" />
+<meta property="og:image" content="https://victoriaolamide.com/portfolio/img/og-portfolio.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#fbf7ef" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root { --ink:#1a1409; --ink2:rgba(26,20,9,.66); --line:rgba(26,20,9,.13); --gold:#f0a020; --goldink:#94560a; --cream:#fbf7ef; color-scheme: light; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--cream); color: var(--ink); font-family: "Manrope", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  body { min-height: 100svh; display: flex; justify-content: center; position: relative; overflow-x: hidden; }
+  body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(40rem 26rem at 50% -6%, rgba(240,160,32,.16), transparent 70%), radial-gradient(30rem 22rem at 100% 100%, rgba(217,120,26,.08), transparent 70%); }
+  main { width: 100%; max-width: 36.5rem; padding: clamp(2rem, 6vh, 3.5rem) 1rem 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .mark { width: 4.75rem; height: 4.75rem; border-radius: 50%; display: grid; place-items: center; background: #fff; border: 1px solid var(--line); box-shadow: 0 10px 30px -18px rgba(26,20,9,.5); }
+  .mark svg { width: 3.4rem; height: 3.4rem; }
+  h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 700; font-size: clamp(1.75rem, 8vw, 2.85rem); white-space: nowrap; letter-spacing: .07em; text-transform: uppercase; margin: 1.1rem 0 .7rem; line-height: 1; }
+  .intro { font-size: clamp(1.02rem, 2.6vw, 1.18rem); color: var(--ink2); line-height: 1.55; margin: 0; max-width: 30rem; }
+  .intro b { color: var(--ink); font-weight: 700; }
+  .label { font-family: "DM Mono", monospace; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink2); align-self: flex-start; margin: 2.4rem 0 .8rem; }
+  .doors { width: 100%; display: grid; gap: .8rem; }
+  .door { color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-align: left; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.35rem; transition: transform .25s, border-color .25s, box-shadow .25s; }
+  .door:hover { transform: translateY(-2px); border-color: rgba(240,160,32,.65); box-shadow: 0 14px 30px -20px rgba(26,20,9,.45); }
+  .door b { display: block; font-size: 1.08rem; font-weight: 700; }
+  .door span { display: block; color: var(--ink2); font-size: .92rem; margin-top: .15rem; }
+  .door .arr { flex: none; font-size: 1.2rem; color: var(--goldink); transition: transform .25s; }
+  .door:hover .arr { transform: translateX(4px); }
+  .box { width: 100%; margin-top: 1.9rem; background: linear-gradient(115deg, #1a1409 0%, #2e1f0c 55%, #6b420f 100%); border-radius: 16px; padding: 1.4rem 1.5rem; text-align: left; color: var(--cream); }
+  .box .label { color: #f6c86a; margin: 0 0 .9rem; display: block; }
+  .row { display: flex; gap: .6rem; flex-wrap: wrap; }
+  .btn { flex: 1 1 12rem; display: inline-flex; justify-content: center; align-items: center; gap: .5rem; padding: .85rem 1.1rem; border-radius: 10px; font-weight: 700; font-size: .95rem; text-decoration: none; transition: transform .2s; }
+  .btn:hover { transform: translateY(-1px); }
+  .gold { background: linear-gradient(120deg, #f6c86a, #f0a020 50%, #d9781a); color: #1a1409; }
+  .ghost { border: 1px solid rgba(251,247,239,.28); color: var(--cream); }
+  .find { margin-top: 2.1rem; align-self: center; }
+  .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem; }
+  .icons a { width: 3rem; height: 3rem; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; color: var(--ink); transition: border-color .2s, color .2s; }
+  .icons a:hover { border-color: var(--gold); color: var(--goldink); }
+  .icons svg { width: 1.15rem; height: 1.15rem; }
+  footer { margin-top: 2rem; font-size: .85rem; color: var(--ink2); }
+  footer a { color: var(--ink2); }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">{{logo}}</div>
+  <h1>Victoria Olamide</h1>
+  <p class="intro">I work at the intersection of <b>AI product marketing</b>, <b>go-to-market</b> and <b>AI agents</b>.</p>
+
+  <span class="label">Explore my work</span>
+  <nav class="doors" aria-label="Portfolio sections">
+    <a class="door" href="/portfolio/product-marketing"><div><b>Product Marketing</b><span>Positioning, go-to-market and launch results</span></div><span class="arr">&rarr;</span></a>
+    <a class="door" href="/portfolio/ai-systems"><div><b>AI Agents</b><span>Sales, support, voice and operations agents I build</span></div><span class="arr">&rarr;</span></a>
+    <a class="door" href="/portfolio/work#ai"><div><b>AI Products</b><span>Opptiq, Audint and the products I've built and launched</span></div><span class="arr">&rarr;</span></a>
+  </nav>
+
+  <div class="box">
+    <span class="label">Work with me</span>
+    <div class="row">
+      <a class="btn gold" href="{{calendly}}" target="_blank" rel="noopener">Book a strategy call &rarr;</a>
+      <a class="btn ghost" href="/portfolio/Victoria-Olamide-CV.pdf" download>Download CV &darr;</a>
+    </div>
+  </div>
+
+  <span class="label find">Find me online</span>
+  <div class="icons">
+    <a href="https://www.linkedin.com/in/victoria-olamide" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a>
+    <a href="https://x.com/vickieolamide" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78zm-1.08 16.17h1.7L7.4 4.74H5.58z"/></svg></a>
+    <a href="https://www.instagram.com/victoriaolamide__" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://www.tiktok.com/@victoriaolamide_" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.2 1.8 3.7 4 3.9v3.2c-1.5.1-2.8-.4-4-1.2v6.3a5.8 5.8 0 1 1-5.8-5.8c.3 0 .6 0 .9.1v3.3a2.6 2.6 0 1 0 1.7 2.4V3z"/></svg></a>
+    <a href="mailto:hello@victoriaolamide.com?subject=Hello%20Victoria" aria-label="Send an email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+  </div>
+
+  <footer>&copy; 2026 Victoria Olamide &middot; <a href="/">victoriaolamide.com</a></footer>
+</main>
+</body>
+</html>
