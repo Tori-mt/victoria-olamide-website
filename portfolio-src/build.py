@@ -74,7 +74,7 @@ LAYOUT = """<!doctype html>
   <div class="wrap cta-inner">
     <span class="eyebrow">{cta_eyebrow}</span>
     <h2>Let's build what comes <em class="s">next.</em></h2>
-    <p>Open to remote AI product marketing roles with teams worldwide, and to building AI agents for businesses that want to grow.</p>
+    <p>Open to product marketing roles with US and UK startups, and to building AI agents for businesses that want to grow.</p>
     <div class="cta-row">
       <a class="btn btn-cream" href="{cal}" target="_blank" rel="noopener">Book a strategy call <span class="arrow">&rarr;</span></a>
       <a class="btn btn-line" href="mailto:hello@victoriaolamide.com?subject=Hello%20Victoria">Send an email &rarr;</a>
@@ -130,6 +130,9 @@ def main() -> None:
         body = re.sub(r"\{\{scene:([a-z]+)\}\}", _scene, body)
         body = re.sub(r"\{\{icon:([a-z]+)\}\}", lambda m: '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">' + _icon(m.group(1), 12, 12, 24, _GOLD) + "</svg>", body)
         body = body.replace("{{calendly}}", CALENDLY)
+        import content as _c
+        for key in ("testimonials", "tools", "library", "library_count"):
+            body = body.replace("{{" + key + "}}", getattr(_c, key)())
         path = f"/portfolio/{sub}".rstrip("/")
         html = LAYOUT.format(
             title=meta["title"], desc=meta["desc"], url=SITE + path, site=SITE,
