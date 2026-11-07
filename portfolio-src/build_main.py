@@ -218,6 +218,7 @@ def page() -> str:
         <div class="ev rv"><i>01</i><div><span class="k">Host &amp; programme lead · Oct 2026</span><h3>Position and Build with Vickie 2.0</h3><p>A five-day live programme on positioning and building with AI for 24 participants, with three guest speakers. I designed the curriculum, led every session and demoed Opptiq live on day one.</p></div></div>
         <div class="ev rv"><i>02</i><div><span class="k">Partner · iHub Nairobi · 5 Nov 2026</span><h3>AI GTM Africa Nairobi</h3><p>Opptiq partnered with AI GTM Africa's Nairobi edition at iHub, bringing AI career intelligence to founders and operators in East Africa.</p></div></div>
         <div class="ev rv"><i>03</i><div><span class="k">Founder · Ongoing</span><h3>The Opptiq community</h3><p>Professionals learning to add AI to the work they already do, with class recordings, a leaderboard and a 30-day action plan.</p></div></div>
+        <div class="row rv" style="margin-top:1.6rem"><a class="btn btn-gold pulse" href="mailto:hello@victoriaolamide.com?subject=Partnership">Partner with me &rarr;</a></div>
       </div>
       <div class="ev-media rv">
         <figure><img src="/site/img/aigtm-backdrop.jpg" alt="AI GTM Africa Nairobi partner backdrop featuring the Opptiq logo" loading="lazy" width="1080" height="737" /><figcaption>AI GTM Africa Nairobi · Opptiq among the partners</figcaption></figure>
