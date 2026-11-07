@@ -39,7 +39,7 @@ AGENTS = [
 LIB = {name: (what, stack) for _c, name, what, stack, _l in LIBRARY}
 
 FAQ = [
-    ('What is Opptiq?', 'Opptiq is your AI career guide. You tell us about your work, and in minutes you get a personal report showing where AI fits into your skills, the problems you could solve, new ways to earn in dollars globally, and real remote jobs paying thousands of dollars for those skills right now.<br><br>Then Opptiq finds those jobs for you, tailors your CV, cover letter and portfolio to each one, and tracks every application, with a 60-day plan of small daily tasks so you lock in and land your dream role. Your first analysis is free. For more questions, ask Luna below.<span class="ans-cta"><a class="btn btn-gold btn-s" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener">Try Opptiq</a><a class="btn btn-line btn-s" href="https://opptiq.victoriaolamide.com/signup" target="_blank" rel="noopener">Subscribe to Opptiq freebies</a></span>'),
+    ('What is Opptiq?', 'Opptiq is your AI career guide. You tell us about your work, and in minutes you get a personal report showing where AI fits into your skills, the problems you could solve, new ways to earn in dollars globally, and real remote jobs paying thousands of dollars for those skills right now.<br><br>Then Opptiq finds those jobs for you, tailors your CV, cover letter and portfolio to each one, and tracks every application, with a 60-day plan of small daily tasks so you lock in and land your dream role. Get your free analysis today. For more questions, ask Luna below.<span class="ans-cta"><a class="btn btn-gold btn-s" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener">Try Opptiq</a><a class="btn btn-line btn-s" href="https://opptiq.victoriaolamide.com/signup" target="_blank" rel="noopener">Subscribe to Opptiq freebies</a></span>'),
     ('I have a question. Who can I ask?', "Ask Luna, my AI assistant. Tap <b>Ask Luna</b> at the bottom of this page for an instant answer about my work, AI agents or Opptiq. If it's personal, Luna will pass you straight to me."),
     ('Can you build AI agents for my business?', 'Yes. I build AI sales, customer support, voice and operations agents around how your business actually works, and connect them to the tools you already use. We start with a strategy call to find the one thing worth automating first.'),
     ('What does an AI product marketer actually do?', "I make AI products easy to understand and easy to choose: customer insight, positioning, launch, adoption and conversion. It's the work behind 5,000+ sign-ups in 48 hours at I'll Tip and 45% adoption growth at Viewon.AI. <a href=\"/portfolio/work\">See the results in my portfolio</a>."),
@@ -114,8 +114,8 @@ def page() -> str:
     <ul class="links" id="links">
       <li><a href="#cases">Results</a></li>
       <li><a href="#agents">AI Agents</a></li>
-      <li><a href="#opptiq">Opptiq</a></li>
       <li><a href="#events">Events</a></li>
+      <li><a href="#opptiq">Opptiq</a></li>
       <li><a href="#creators">Social Media Conversion System</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
@@ -185,7 +185,7 @@ def page() -> str:
   </div>
 </section>
 
-<section class="sec cream" id="testimonials">
+<section class="sec white" id="testimonials">
   <div class="wrap">
     <div class="head center rv">
       <span class="eyebrow">Testimonials</span>
@@ -205,30 +205,6 @@ def page() -> str:
     <div class="row rv" style="margin-top:2rem">
       <a class="btn btn-gold" href="{CAL}" target="_blank" rel="noopener">Book a strategy call &rarr;</a>
       <a class="btn btn-line" href="/portfolio/ai-systems#library">Browse my AI Library</a>
-    </div>
-  </div>
-</section>
-
-<section class="sec opptiq-band" id="opptiq">
-  <div class="wrap opq">
-    <div class="opq-copy rv">
-      <span class="eyebrow">My AI product</span>
-      <h2>Try the Opptiq app <em class="s">today.</em></h2>
-      <p class="opq-lead">Opptiq is your AI career guide. Tell it about your work and in minutes you get a personal report on where AI fits your skills, and how to earn in dollars with them.</p>
-      <ul class="opq-list">
-        <li><b>Your AI career report in minutes</b><span>Where AI fits your skills and the problems you could solve.</span></li>
-        <li><b>Real remote jobs, found for you</b><span>Roles paying thousands of dollars for the skills you already have.</span></li>
-        <li><b>Your CV, cover letter and a 60-day plan</b><span>Tailored to each job, with small daily tasks so you land the role.</span></li>
-      </ul>
-      <p class="opq-proof"><b>260+</b> organic users in 2+ weeks, with paying users.</p>
-      <div class="row">
-        <a class="btn btn-gold pulse" href="https://opptiq.victoriaolamide.com/signup" target="_blank" rel="noopener">Get my free analysis &rarr;</a>
-        <a class="btn btn-line" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener" data-install>Install the app</a>
-      </div>
-      <small class="opq-note">Your first analysis is free. No card needed.</small>
-    </div>
-    <div class="opq-phone rv" aria-hidden="true">
-      <div class="phone"><span class="notch"></span><img src="/site/img/opptiq-phone.jpg" alt="" width="640" height="1280" loading="lazy" /></div>
     </div>
   </div>
 </section>
@@ -257,18 +233,27 @@ def page() -> str:
   </div>
 </section>
 
-<section class="sec dark" id="speaking">
-  <div class="wrap">
-    <div class="split rv">
-      <div><span class="eyebrow">Speaking &amp; sessions</span><h2>Ideas I teach <em class="s">live.</em></h2></div>
-      <p>Practical sessions for founders, professionals and creators. Clear frameworks, real launches, no fluff.</p>
+<section class="sec opptiq-band" id="opptiq">
+  <div class="wrap opq">
+    <div class="opq-copy rv">
+      <span class="eyebrow">My AI product</span>
+      <h2>Try the Opptiq app <em class="s">today.</em></h2>
+      <p class="opq-lead">Opptiq is your AI career guide. Tell it about your work and in minutes you get a personal report on where AI fits your skills, and how to earn in dollars with them.</p>
+      <ul class="opq-list">
+        <li><b>Your AI career report in minutes</b><span>Where AI fits your skills and the problems you could solve.</span></li>
+        <li><b>Real remote jobs, found for you</b><span>Roles paying thousands of dollars for the skills you already have.</span></li>
+        <li><b>Your CV, cover letter and a 60-day plan</b><span>Tailored to each job, with small daily tasks so you land the role.</span></li>
+      </ul>
+      <p class="opq-proof"><b>260+</b> organic users in 2+ weeks, with paying users.</p>
+      <div class="row">
+        <a class="btn btn-gold pulse" href="https://opptiq.victoriaolamide.com/signup" target="_blank" rel="noopener">Get your free analysis &rarr;</a>
+        <a class="btn btn-line" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener" data-install>Install the app</a>
+      </div>
+      <small class="opq-note">Get your free analysis. No card needed.</small>
     </div>
-    <div class="talks">
-      <div class="talk rv"><i>01 · PBV 2.0</i><h3>Position before you build</h3><p>Why the products that win are the ones people understand in seconds, and how to find that one sentence first.</p></div>
-      <div class="talk rv"><i>02 · Live demo</i><h3>From idea to AI product</h3><p>How a marketer specified, built and launched an AI product with AI tools, and what it took to get paying users.</p></div>
-      <div class="talk rv"><i>03 · Creators</i><h3>Earn beyond brand deals</h3><p>How creators turn what they know into products, offers and income that don't depend on the next sponsorship.</p></div>
+    <div class="opq-phone rv" aria-hidden="true">
+      <div class="phone"><span class="notch"></span><img src="/site/img/opptiq-phone.jpg" alt="" width="640" height="1280" loading="lazy" /></div>
     </div>
-    <div class="row rv" style="margin-top:2rem"><a class="btn btn-line" href="mailto:hello@victoriaolamide.com?subject=Speaking%20invitation">Invite me to speak &rarr;</a></div>
   </div>
 </section>
 
@@ -295,8 +280,23 @@ def page() -> str:
   </div>
 </section>
 
+<section class="sec dark" id="speaking">
+  <div class="wrap">
+    <div class="split rv">
+      <div><span class="eyebrow">Speaking &amp; sessions</span><h2>Ideas I teach <em class="s">live.</em></h2></div>
+      <p>Practical sessions for founders, professionals and creators. Clear frameworks, real launches, no fluff.</p>
+    </div>
+    <div class="talks">
+      <div class="talk rv"><i>01 · PBV 2.0</i><h3>Position before you build</h3><p>Why the products that win are the ones people understand in seconds, and how to find that one sentence first.</p></div>
+      <div class="talk rv"><i>02 · Live demo</i><h3>From idea to AI product</h3><p>How a marketer specified, built and launched an AI product with AI tools, and what it took to get paying users.</p></div>
+      <div class="talk rv"><i>03 · Creators</i><h3>Earn beyond brand deals</h3><p>How creators turn what they know into products, offers and income that don't depend on the next sponsorship.</p></div>
+    </div>
+    <div class="row rv" style="margin-top:2rem"><a class="btn btn-line" href="mailto:hello@victoriaolamide.com?subject=Speaking%20invitation">Invite me to speak &rarr;</a></div>
+  </div>
+</section>
 
-<section class="sec dark" id="faq">
+
+<section class="sec white" id="faq">
   <div class="wrap">
     <div class="head center rv">
       <span class="eyebrow">FAQ</span>

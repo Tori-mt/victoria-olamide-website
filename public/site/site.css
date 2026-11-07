@@ -468,3 +468,4 @@ footer a:hover { color: var(--gold-soft); }
 @media (max-width: 860px) { .opq { grid-template-columns: 1fr; } .opq-phone { order: -1; } .phone { width: min(14rem, 64vw); } }
 @media (prefers-reduced-motion: reduce) { .phone { animation: none; } }
 .opptiq-band .btn-line { border-color: rgba(251,247,239,.32); color: var(--on); background: transparent; } .opptiq-band .btn-line:hover { border-color: var(--on); }
+.white .tslide { background: var(--cream); } .white .tbtn { background: var(--cream); }
