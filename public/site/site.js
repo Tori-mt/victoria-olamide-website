@@ -172,3 +172,129 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
     });
   });
 })();
+
+// ===== Luna, Victoria's AI assistant =====
+(function () {
+  var panel = document.getElementById("luna");
+  if (!panel) return;
+  var openBtn = document.querySelector("[data-luna-open]");
+  var log = panel.querySelector(".luna-log");
+  var chipsBox = panel.querySelector(".luna-chips");
+  var form = panel.querySelector(".luna-form");
+  var input = form.querySelector("input");
+  var QA = JSON.parse(document.getElementById("luna-data").textContent);
+  var history = [];
+  var started = false;
+  var CAL = "https://calendly.com/hello-victoriaolamide/30min";
+  var NEXT = {
+    portfolio: ['View my portfolio', "/portfolio", false],
+    call: ['Book a strategy call', CAL, true],
+    contact: ['Message Victoria', "#contact", false],
+    opptiq: ['Try Opptiq free', "https://opptiq.victoriaolamide.com", true],
+    cv: ['Download CV', "/portfolio/Victoria-Olamide-CV.pdf", false]
+  };
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function scroll() { log.scrollTop = log.scrollHeight; }
+  function add(who, html, next) {
+    var b = document.createElement("div");
+    b.className = "luna-msg " + who;
+    b.innerHTML = html;
+    if (next && NEXT[next]) {
+      var n = NEXT[next], a = document.createElement("a");
+      a.className = "luna-next";
+      a.textContent = n[0] + " →";
+      a.href = n[1];
+      if (n[2]) { a.target = "_blank"; a.rel = "noopener"; }
+      if (next === "contact") a.setAttribute("data-contact", "");
+      if (next === "cv") a.setAttribute("download", "");
+      b.appendChild(document.createElement("br"));
+      b.appendChild(a);
+    }
+    log.appendChild(b);
+    scroll();
+    return b;
+  }
+  function chips(list) {
+    chipsBox.innerHTML = "";
+    list.forEach(function (item) {
+      var c = document.createElement("button");
+      c.type = "button";
+      c.className = "luna-chip";
+      c.textContent = item.q;
+      c.addEventListener("click", function () { askChip(item); });
+      chipsBox.appendChild(c);
+    });
+  }
+  function askChip(item) {
+    add("me", esc(item.q));
+    history.push({ role: "me", text: item.q });
+    setTimeout(function () { add("bot", esc(item.a), item.n); history.push({ role: "luna", text: item.a }); }, 350);
+    chips(QA.filter(function (x) { return x !== item; }).slice(0, 4));
+  }
+  // Closest written answer, used when the AI can't be reached.
+  function closest(q) {
+    var words = q.toLowerCase().match(/[a-z]{3,}/g) || [], best = null, score = 0;
+    QA.forEach(function (item) {
+      var hay = (item.q + " " + item.a).toLowerCase(), s = 0;
+      words.forEach(function (w) { if (hay.indexOf(w) > -1) s++; });
+      if (s > score) { score = s; best = item; }
+    });
+    return score >= 2 ? best : null;
+  }
+  function wireContact(el) {
+    el.querySelectorAll("[data-contact]").forEach(function (a) {
+      if (a._w) return; a._w = true;
+      a.addEventListener("click", function (e) {
+        var d = document.getElementById("contact");
+        if (d && d.showModal) { e.preventDefault(); d.showModal(); }
+      });
+    });
+  }
+  function open() {
+    panel.hidden = false;
+    openBtn.setAttribute("aria-expanded", "true");
+    openBtn.classList.add("on");
+    if (!started) {
+      started = true;
+      add("bot", "Hi! I'm Luna, Victoria's AI assistant. Ask me about her work, AI agents, hiring her, or Opptiq. Tap a question or type your own.");
+      chips(QA.slice(0, 5));
+    }
+    setTimeout(function () { input.focus(); }, 50);
+  }
+  function close() {
+    panel.hidden = true;
+    openBtn.setAttribute("aria-expanded", "false");
+    openBtn.classList.remove("on");
+  }
+  openBtn.addEventListener("click", function () { panel.hidden ? open() : close(); });
+  panel.querySelector("[data-luna-close]").addEventListener("click", close);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hidden) close(); });
+  var obs = new MutationObserver(function () { wireContact(log); });
+  obs.observe(log, { childList: true });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var q = input.value.trim();
+    if (q.length < 2) return;
+    input.value = "";
+    add("me", esc(q));
+    var typing = add("bot typing", "<span></span><span></span><span></span>");
+    fetch("/api/luna", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ question: q, history: history.slice(-6) }) })
+      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (j) {
+        typing.remove();
+        if (j.ok) { add("bot", esc(j.answer), j.next); history.push({ role: "me", text: q }, { role: "luna", text: j.answer }); return; }
+        if (j.error && j.error.indexOf("lot of questions") > -1) { add("bot", esc(j.error), "call"); return; }
+        var best = closest(q);
+        if (best) add("bot", esc(best.a), best.n);
+        else add("bot", "Great question. Victoria will answer that one personally. Send her a message and she'll get back to you.", "contact");
+      })
+      .catch(function () {
+        typing.remove();
+        var best = closest(q);
+        if (best) add("bot", esc(best.a), best.n);
+        else add("bot", "I couldn't reach my brain just now. Send Victoria a message and she'll reply personally.", "contact");
+      });
+  });
+})();

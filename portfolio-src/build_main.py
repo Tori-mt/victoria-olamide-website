@@ -11,6 +11,7 @@ from pathlib import Path
 from scenes import render
 from logo import monogram
 from content import testimonials, LIBRARY
+from luna import widget_html as luna_widget, write_kb as luna_write_kb
 SIGNUP = "https://opptiq.victoriaolamide.com/signup"
 DASHIE = "https://opptiq.victoriaolamide.com/?support=open"
 CREATAWS = "https://www.linkedin.com/company/creataws/"
@@ -38,8 +39,8 @@ AGENTS = [
 LIB = {name: (what, stack) for _c, name, what, stack, _l in LIBRARY}
 
 FAQ = [
-    ('What is Opptiq?', 'Opptiq is your AI career guide. You tell us about your work, and in minutes you get a personal report showing where AI fits into your skills, the problems you could solve, new ways to earn in dollars globally, and real remote jobs paying thousands of dollars for those skills right now.<br><br>Then Opptiq finds those jobs for you, tailors your CV, cover letter and portfolio to each one, and tracks every application, with a 60-day plan of small daily tasks so you lock in and land your dream role. Your first analysis is free. For more questions about Opptiq, ask Dashie below.<span class="ans-cta"><a class="btn btn-gold btn-s" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener">Try Opptiq</a><a class="btn btn-line btn-s" href="https://opptiq.victoriaolamide.com/signup" target="_blank" rel="noopener">Subscribe to Opptiq freebies</a></span>'),
-    ('I have a question about Opptiq. Who can I ask?', "Ask Dashie, the Opptiq support assistant. Tap <b>Ask Dashie</b> at the bottom of this page and you'll get an answer right away, or a reply from the team."),
+    ('What is Opptiq?', 'Opptiq is your AI career guide. You tell us about your work, and in minutes you get a personal report showing where AI fits into your skills, the problems you could solve, new ways to earn in dollars globally, and real remote jobs paying thousands of dollars for those skills right now.<br><br>Then Opptiq finds those jobs for you, tailors your CV, cover letter and portfolio to each one, and tracks every application, with a 60-day plan of small daily tasks so you lock in and land your dream role. Your first analysis is free. For more questions, ask Luna below.<span class="ans-cta"><a class="btn btn-gold btn-s" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener">Try Opptiq</a><a class="btn btn-line btn-s" href="https://opptiq.victoriaolamide.com/signup" target="_blank" rel="noopener">Subscribe to Opptiq freebies</a></span>'),
+    ('I have a question. Who can I ask?', "Ask Luna, my AI assistant. Tap <b>Ask Luna</b> at the bottom of this page for an instant answer about my work, AI agents or Opptiq. If it's personal, Luna will pass you straight to me."),
     ('Can you build AI agents for my business?', 'Yes. I build AI sales, customer support, voice and operations agents around how your business actually works, and connect them to the tools you already use. We start with a strategy call to find the one thing worth automating first.'),
     ('What does an AI product marketer actually do?', "I make AI products easy to understand and easy to choose: customer insight, positioning, launch, adoption and conversion. It's the work behind 5,000+ sign-ups in 48 hours at I'll Tip and 45% adoption growth at Viewon.AI. <a href=\"/portfolio/work\">See the results in my portfolio</a>."),
     ('Are you open to full-time roles?', 'Yes. I\'m open to AI product marketing roles with US and UK startups, working remotely from Lagos across US and European time zones. <a href="/portfolio/resume">Read my résumé</a>.'),
@@ -275,7 +276,7 @@ def page() -> str:
     <div class="head center rv">
       <span class="eyebrow">FAQ</span>
       <h2>Frequently asked <em class="s">questions.</em></h2>
-      <p>Still curious? Ask Dashie at the bottom of the page.</p>
+      <p>Still curious? Ask Luna at the bottom of the page.</p>
     </div>
     <div class="faq">{faq}</div>
   </div>
@@ -332,7 +333,7 @@ def page() -> str:
     <p class="cstatus" role="status" aria-live="polite"></p>
   </form>
 </dialog>
-<a class="dashie" href="{DASHIE}" target="_blank" rel="noopener" aria-label="Ask Dashie, the Opptiq support assistant"><span>D</span>Ask Dashie</a>
+{luna_widget()}
 <script src="/site/site.js?v={v}" defer></script>
 </body>
 </html>
@@ -340,5 +341,6 @@ def page() -> str:
 
 
 if __name__ == "__main__":
+    luna_write_kb(ROOT.parent / "api")
     OUT.write_text(page(), encoding="utf-8")
     print("built", OUT)
