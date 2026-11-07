@@ -71,9 +71,9 @@ LAYOUT = """<!doctype html>
   <div class="wrap cta-inner">
     <span class="eyebrow">{cta_eyebrow}</span>
     <h2>Let's build what comes <em class="s">next.</em></h2>
-    <p>Open to senior product marketing, go-to-market leadership and AI product roles with remote-first teams worldwide, plus selected advisory and founding-team conversations.</p>
+    <p>Open to remote AI product marketing roles with teams worldwide, and to building AI agents for businesses that want to grow.</p>
     <div class="cta-row">
-      <a class="btn btn-cream" href="{cal}" target="_blank" rel="noopener">Book a 30-min strategy call <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-cream" href="{cal}" target="_blank" rel="noopener">Book a strategy call <span class="arrow">&rarr;</span></a>
       <a class="btn btn-line" href="mailto:hello@victoriaolamide.com">hello@victoriaolamide.com</a>
       <a class="btn btn-line" href="https://www.linkedin.com/in/victoria-olamide" target="_blank" rel="noopener">LinkedIn &nearr;</a>
       <a class="btn btn-line" href="/portfolio/Victoria-Olamide-CV.pdf" download>Download CV &darr;</a>
