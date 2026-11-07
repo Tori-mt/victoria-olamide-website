@@ -132,7 +132,7 @@ def page() -> str:
       <div class="roles"><span>Founder, Creataws</span><span>Built Opptiq</span></div>
       <p class="lead">I take products to market, build the AI agents that keep them growing, and turn attention into paying customers.</p>
       <div class="row">
-        <a class="btn btn-gold" href="/portfolio">View my portfolio to work with me &rarr;</a>
+        <a class="btn btn-gold shine breathe" href="/portfolio">View my portfolio to work with me &rarr;</a>
         <a class="btn btn-line" href="{CAL}" target="_blank" rel="noopener">Book a strategy call</a>
       </div>
       <span class="open"><i></i>Open to AI product marketing roles with US and UK startups</span>
@@ -251,7 +251,7 @@ def page() -> str:
       <span class="eyebrow">Content &amp; creators</span>
       <h2>Product marketing for <em class="s">creators.</em></h2>
       <p>Book a call with me to build a content system that saves you stress and converts followers into paying customers, without you lifting a finger every day.</p>
-      <div class="row" style="margin-top:1.3rem"><a class="btn btn-gold" href="{CAL}" target="_blank" rel="noopener">Book a strategy call &rarr;</a></div>
+      <div class="row" style="margin-top:1.3rem"><a class="btn btn-gold pulse" href="{CAL}" target="_blank" rel="noopener">Book a strategy call &rarr;</a></div>
       <div class="socials">
         <a href="https://www.instagram.com/victoriaolamide__" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.linkedin.com/in/victoria-olamide" target="_blank" rel="noopener">LinkedIn</a>
@@ -288,7 +288,7 @@ def page() -> str:
         <p>View my portfolio to work with me.</p>
       </div>
       <div class="row">
-        <a class="btn btn-cream" href="/portfolio">View my portfolio &rarr;</a>
+        <a class="btn btn-cream shine breathe" href="/portfolio">View my portfolio &rarr;</a>
         <a class="btn btn-line" href="{CAL}" target="_blank" rel="noopener">Book a strategy call</a>
       </div>
     </div>

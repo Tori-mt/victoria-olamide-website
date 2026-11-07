@@ -99,3 +99,76 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
     }
   });
 });
+
+// ===== Motion (7 Nov 2026) =====
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Numbers count up when they scroll into view: "5,000+", "~46%", "260+", "45%" ...
+  var nums = document.querySelectorAll(".stat b, .chip b, .result b");
+  nums.forEach(function (el) {
+    var m = el.textContent.trim().match(/^([^\d]*)([\d,]+)(.*)$/);
+    if (!m) return;
+    el.setAttribute("data-count", "");
+    el._pre = m[1]; el._n = parseInt(m[2].replace(/,/g, ""), 10); el._suf = m[3]; el._comma = m[2].indexOf(",") > -1;
+  });
+  function fmt(el, v) {
+    var s = el._comma ? Math.round(v).toLocaleString("en-US") : String(Math.round(v));
+    el.textContent = el._pre + s + el._suf;
+  }
+  function run(el) {
+    if (el._done || el._n === undefined) return;
+    el._done = true;
+    if (reduce) return;
+    var dur = 1400 + Math.min(el._n, 5000) / 5, t0 = null;
+    fmt(el, 0);
+    function step(t) {
+      if (!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      fmt(el, el._n * e);
+      if (p < 1) requestAnimationFrame(step); else fmt(el, el._n);
+    }
+    requestAnimationFrame(step);
+  }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    nums.forEach(function (el) { if (el._n !== undefined) io.observe(el); });
+  }
+
+  // FAQ: a soft pop sound and a zoom as you move between questions and open one.
+  var ctx = null, last = 0;
+  function pop(vol) {
+    try {
+      var now = Date.now();
+      if (now - last < 90) return;
+      last = now;
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      if (ctx.state === "suspended") ctx.resume();
+      var o = ctx.createOscillator(), g = ctx.createGain(), t = ctx.currentTime;
+      o.type = "sine";
+      o.frequency.setValueAtTime(620, t);
+      o.frequency.exponentialRampToValueAtTime(240, t + 0.09);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol, t + 0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
+      o.connect(g); g.connect(ctx.destination);
+      o.start(t); o.stop(t + 0.14);
+    } catch (e) { /* sound is a nice-to-have */ }
+  }
+  var unlocked = false;
+  ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+    window.addEventListener(ev, function () { unlocked = true; }, { once: true, passive: true });
+  });
+  var items = document.querySelectorAll(".faq details");
+  items.forEach(function (d) {
+    d.addEventListener("mouseenter", function () { if (unlocked && !reduce) pop(0.05); });
+    d.addEventListener("toggle", function () {
+      if (!d.open) return;
+      items.forEach(function (o) { if (o !== d) o.open = false; });
+      pop(0.12);
+      d.classList.remove("popped"); void d.offsetWidth; d.classList.add("popped");
+    });
+  });
+})();
