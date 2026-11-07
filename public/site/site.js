@@ -56,3 +56,33 @@ document.querySelectorAll("[data-carousel]").forEach(function (car) {
   play();
 });
 
+
+// Contact dialog: opens from any [data-contact] link, posts to /api/contact.
+(function () {
+  var dlg = document.getElementById("contact");
+  if (!dlg || typeof dlg.showModal !== "function") return; // old browsers keep the mailto link
+  var form = dlg.querySelector("form");
+  var status = dlg.querySelector(".cstatus");
+  var btn = form.querySelector('button[type="submit"]');
+  document.querySelectorAll("[data-contact]").forEach(function (a) {
+    a.addEventListener("click", function (e) { e.preventDefault(); status.textContent = ""; status.className = "cstatus"; dlg.showModal(); });
+  });
+  dlg.querySelector("[data-close]").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var data = Object.fromEntries(new FormData(form).entries());
+    if (!data.name || !data.message || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email || "")) {
+      status.className = "cstatus err"; status.textContent = "Please add your name, a valid email and a message."; return;
+    }
+    btn.disabled = true; status.className = "cstatus"; status.textContent = "Sending...";
+    fetch("/api/contact", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (j) {
+        if (j.ok) { status.className = "cstatus ok"; status.textContent = "Thank you! Your message is on its way. I'll reply to your email soon."; form.reset(); }
+        else { status.className = "cstatus err"; status.innerHTML = (j.error || "Something went wrong.") + ' You can also email <a href="mailto:hello@victoriaolamide.com">hello@victoriaolamide.com</a>.'; }
+      })
+      .catch(function () { status.className = "cstatus err"; status.innerHTML = 'Could not send right now. Please email <a href="mailto:hello@victoriaolamide.com">hello@victoriaolamide.com</a>.'; })
+      .then(function () { btn.disabled = false; });
+  });
+})();

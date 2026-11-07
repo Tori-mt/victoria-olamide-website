@@ -13,6 +13,7 @@ from logo import monogram
 from content import testimonials, LIBRARY
 SIGNUP = "https://opptiq.victoriaolamide.com/signup"
 DASHIE = "https://opptiq.victoriaolamide.com/?support=open"
+CREATAWS = "https://www.linkedin.com/company/creataws/"
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / "index.html"
@@ -29,19 +30,15 @@ CASES = [
 ]
 
 AGENTS = [
-    ("sales", "AI Sales Agents", "Talk to leads, qualify them, follow up and keep your CRM up to date, so no lead goes cold.",
-     ["AI Sales Agent", "Personalised cold email system", "Outbound GTM System"]),
-    ("support", "AI Support Agents", "Answer customers instantly from their own account data, and hand sensitive cases to a person.",
-     ["Dashie, website support chatbot", "GoHighLevel chatbot", "Lifecycle email system"]),
-    ("voice", "AI Voice Agents", "Answer and place real phone calls, qualify callers and book appointments, day or night.",
-     ["AI Voice Agent", "AI Sales Agent"]),
-    ("ops", "AI Operations Agents", "Handle email, scheduling, documents, data and reporting across the tools you already use.",
-     ["AI Business Operations Agent", "Claude Code AI assistant", "MCPs, APIs &amp; PC automation", "Google Workspace CLI"]),
+    ("sales", "AI Sales Agents", "Qualify leads, follow up and update your CRM.", "sales"),
+    ("support", "AI Support Agents", "Answer customers from their own account data, with human handoff.", "support"),
+    ("voice", "AI Voice Agents", "Answer every call, qualify callers and book appointments.", "voice"),
+    ("ops", "AI Operations Agents", "Email, scheduling, docs and data, handled across your tools.", "ops"),
 ]
 LIB = {name: (what, stack) for _c, name, what, stack, _l in LIBRARY}
 
 FAQ = [
-    ('What is Opptiq?', 'Opptiq is your AI career guide. You tell us about your work, and in minutes you get a personal report showing where AI fits into your skills, the problems you could solve, new ways to earn in dollars globally, and real remote jobs paying thousands of dollars for those skills right now.<br><br>Then Opptiq finds those jobs for you, tailors your CV, cover letter and portfolio to each one, and tracks every application, with a 60-day plan of small daily tasks so you lock in and land your dream role. Your first analysis is free.<span class="ans-cta"><a class="btn btn-gold btn-s" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener">Try Opptiq</a><a class="btn btn-line btn-s" href="https://opptiq.victoriaolamide.com/signup" target="_blank" rel="noopener">Join my email list</a></span>'),
+    ('What is Opptiq?', 'Opptiq is your AI career guide. You tell us about your work, and in minutes you get a personal report showing where AI fits into your skills, the problems you could solve, new ways to earn in dollars globally, and real remote jobs paying thousands of dollars for those skills right now.<br><br>Then Opptiq finds those jobs for you, tailors your CV, cover letter and portfolio to each one, and tracks every application, with a 60-day plan of small daily tasks so you lock in and land your dream role. Your first analysis is free. For more questions about Opptiq, ask Dashie below.<span class="ans-cta"><a class="btn btn-gold btn-s" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener">Try Opptiq</a><a class="btn btn-line btn-s" href="https://opptiq.victoriaolamide.com/signup" target="_blank" rel="noopener">Subscribe to Opptiq freebies</a></span>'),
     ('I have a question about Opptiq. Who can I ask?', "Ask Dashie, the Opptiq support assistant. Tap <b>Ask Dashie</b> at the bottom of this page and you'll get an answer right away, or a reply from the team."),
     ('Can you build AI agents for my business?', 'Yes. I build AI sales, customer support, voice and operations agents around how your business actually works, and connect them to the tools you already use. We start with a strategy call to find the one thing worth automating first.'),
     ('What does an AI product marketer actually do?', "I make AI products easy to understand and easy to choose: customer insight, positioning, launch, adoption and conversion. It's the work behind 5,000+ sign-ups in 48 hours at I'll Tip and 45% adoption growth at Viewon.AI."),
@@ -73,14 +70,10 @@ def page() -> str:
         f'<div class="result"><small>Result</small><b>{big}</b><span>{small}</span></div></article>'
         for n, where, name, body, big, small in CASES
     )
-    def items(names):
-        return "".join(
-            f'<details><summary>{n}</summary><p>{LIB[n][0]}</p><span>{LIB[n][1]}</span></details>' for n in names
-        )
     agents = "".join(
-        f'<article class="agent rv">{scene(s)}<div><h3>{t}</h3><p>{d}</p><span class="built">What I have built</span>'
-        f'<div class="built-list">{items(names)}</div></div></article>'
-        for s, t, d, names in AGENTS
+        f'<a class="agent rv" href="/portfolio/ai-systems?show={tag}#library">{scene(s)}<div><h3>{t}</h3><p>{d}</p>'
+        f'<span class="see">See what I\'ve built &rarr;</span></div></a>'
+        for s, t, d, tag in AGENTS
     )
     faq = "".join(
         f'<details class="rv"><summary>{q}</summary><div class="ans">{a}</div></details>'
@@ -135,7 +128,7 @@ def page() -> str:
   <div class="wrap">
     <div class="hero-copy rv">
       <span class="eyebrow">AI product marketing · Go-to-market · AI agents</span>
-      <h1>Victoria <em class="s">Olamide.</em></h1>
+      <h1>Victoria<br />Olamide.</h1>
       <div class="roles"><span>Founder, Creataws</span><span>Built Opptiq</span></div>
       <p class="lead">I take products to market, build the AI agents that keep them growing, and turn attention into paying customers.</p>
       <div class="row">
@@ -204,7 +197,7 @@ def page() -> str:
   <div class="wrap">
     <div class="split rv">
       <div><span class="eyebrow">AI agents I build</span><h2>Agents that sell, support, operate and <em class="s">convert.</em></h2></div>
-      <p>Each one is built around how your business actually works. Open the items on any card to see what I've already built in that area.</p>
+      <p>Built around how your business actually works. Tap any card to see the ones I've already built.</p>
     </div>
     <div class="agents">{agents}</div>
     <div class="row rv" style="margin-top:2rem">
@@ -328,17 +321,13 @@ def page() -> str:
         <li><a href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener">Opptiq</a></li>
         <li><a href="/portfolio/ai-systems">AI Agents</a></li>
         <li><a href="/portfolio/ai-systems#library">AI Library</a></li>
-        <li><a href="#creators">Creators</a></li>
-        <li><a href="{SIGNUP}" target="_blank" rel="noopener">Join my email list</a></li>
+        <li><a href="{CREATAWS}" target="_blank" rel="noopener">Creataws</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul></div>
       <div><h4>Company</h4><ul>
         <li><a href="/portfolio/about">About me</a></li>
-        <li><a href="{MAIL}">Contact me</a></li>
+        <li><a href="{MAIL}" data-contact>Contact me</a></li>
         <li><a href="{CAL}" target="_blank" rel="noopener">Book a strategy call</a></li>
-        <li><a href="https://opptiq.victoriaolamide.com/support" target="_blank" rel="noopener">Opptiq support</a></li>
-        <li><a href="mailto:hello@victoriaolamide.com?subject=General%20inquiry">General inquiries</a></li>
-        <li><a href="mailto:support@victoriaolamide.com">Email support</a></li>
       </ul></div>
       <div><h4>Follow</h4><ul>
         <li><a href="https://www.linkedin.com/in/victoria-olamide" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -353,8 +342,21 @@ def page() -> str:
       <p class="small"><span>Open to AI product marketing roles with US and UK startups.</span><span>&copy; 2026 Creataws Ltd. All rights reserved.</span></p>
     </div>
   </div>
-  <div class="fmark" aria-hidden="true">Victoria</div>
 </footer>
+<dialog class="contact" id="contact" aria-labelledby="contact-title">
+  <form class="cform" method="dialog" novalidate>
+    <button class="cx" type="button" data-close aria-label="Close">&times;</button>
+    <span class="eyebrow">Contact me</span>
+    <h3 id="contact-title">Send me a message</h3>
+    <p class="csub">It goes straight to my inbox, and I'll reply to your email.</p>
+    <label>Your name<input name="name" required maxlength="120" autocomplete="name" /></label>
+    <label>Your email<input name="email" type="email" required maxlength="200" autocomplete="email" /></label>
+    <label>Your message<textarea name="message" required rows="5" maxlength="5000"></textarea></label>
+    <label class="hp" aria-hidden="true">Company<input name="company" tabindex="-1" autocomplete="off" /></label>
+    <button class="btn btn-gold" type="submit">Send message &rarr;</button>
+    <p class="cstatus" role="status" aria-live="polite"></p>
+  </form>
+</dialog>
 <a class="dashie" href="{DASHIE}" target="_blank" rel="noopener" aria-label="Ask Dashie, the Opptiq support assistant"><span>D</span>Ask Dashie</a>
 <script src="/site/site.js?v={v}" defer></script>
 </body>

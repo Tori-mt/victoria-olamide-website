@@ -583,3 +583,13 @@ section { position: relative; }
   .lcat { display: none; }
   .lbody { padding-left: 2.8rem; }
 }
+
+/* AI Library focus panel (opened from the main site agent cards) */
+.lfocus { background: var(--choc); color: var(--on-dark); border-radius: var(--r); padding: clamp(1.4rem, 3vw, 2rem); margin-bottom: 1.5rem; display: grid; gap: .5rem; }
+.lfocus .eyebrow { color: var(--gold); }
+.lfocus h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+.lfocus p { color: var(--on-dark-2); max-width: 44rem; }
+.lfocus .lfn { margin-top: .4rem; color: var(--on-dark); font-weight: 600; }
+.lall { margin-left: .6rem; font: 600 .82rem var(--f-body); background: none; border: 1px solid rgba(251,247,239,.35); color: var(--gold-soft); border-radius: 999px; padding: .35rem .8rem; cursor: pointer; }
+.lall:hover { border-color: var(--gold); }
+.lfocus[hidden], .lchips[hidden] { display: none; }

@@ -73,3 +73,27 @@ document.querySelectorAll("[data-library]").forEach(function (lib) {
     });
   });
 });
+
+// Deep link from the main site: /portfolio/ai-systems?show=sales#library
+(function () {
+  var show = new URLSearchParams(location.search).get("show");
+  var lib = document.querySelector("[data-library]");
+  if (!show || !lib) return;
+  var panel = lib.querySelector('[data-focus="' + show + '"]');
+  if (!panel) return;
+  var chips = lib.querySelector(".lchips");
+  var rows = lib.querySelectorAll(".lrow");
+  panel.hidden = false;
+  chips.hidden = true;
+  rows.forEach(function (r) {
+    var on = (" " + r.getAttribute("data-t") + " ").indexOf(" " + show + " ") > -1;
+    r.classList.toggle("hide", !on);
+  });
+  panel.querySelector(".lall").addEventListener("click", function () {
+    panel.hidden = true;
+    chips.hidden = false;
+    rows.forEach(function (r) { r.classList.remove("hide"); });
+    history.replaceState(null, "", location.pathname + "#library");
+  });
+  document.querySelectorAll(".rv").forEach(function (e) { e.classList.add("in"); });
+})();

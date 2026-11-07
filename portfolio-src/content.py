@@ -68,6 +68,23 @@ LIBRARY = [
 ]
 
 
+# Which library items each agent card on the main site opens (?show=<tag> on the AI Agents page).
+FOCUS = {
+    "sales": ("AI Sales Agents", "Agents that talk to leads, qualify them, follow up and keep your pipeline moving, so no lead goes cold.",
+              ["AI Sales Agent", "Personalised cold email system", "Outbound GTM System", "GoHighLevel automation"]),
+    "support": ("AI Support Agents", "Agents that answer customers instantly, from their own account data, and hand sensitive cases to a person.",
+                ["Dashie, website support chatbot", "GoHighLevel chatbot", "Lifecycle email system"]),
+    "voice": ("AI Voice Agents", "Agents that answer and place real phone calls, qualify callers and book appointments, day or night.",
+              ["AI Voice Agent", "AI Sales Agent"]),
+    "ops": ("AI Operations Agents", "Agents that handle email, scheduling, documents, data and reporting across the tools a team already uses.",
+            ["AI Business Operations Agent", "Claude Code AI assistant", "MCPs, APIs &amp; PC automation", "Google Workspace CLI", "Marketing &amp; sales agent skills"]),
+}
+
+
+def _tags(name):
+    return " ".join(k for k, (_t, _d, names) in FOCUS.items() if name in names)
+
+
 def testimonials() -> str:
     slides = "".join(
         f'<figure class="tslide"><blockquote>{q}</blockquote>'
@@ -105,10 +122,16 @@ def library() -> str:
     rows = ""
     for i, (cat, name, what, stack, link) in enumerate(LIBRARY, 1):
         live = f'<a class="link" href="{link}" target="_blank" rel="noopener">See it live &nearr;</a>' if link else ""
-        rows += (f'<details class="lrow" data-c="{cat}"><summary><span class="ln">{i:02d}</span><span class="lt">{name}</span>'
+        rows += (f'<details class="lrow" data-c="{cat}" data-t="{_tags(name)}"><summary><span class="ln">{i:02d}</span><span class="lt">{name}</span>'
                  f'<span class="lcat">{labels[cat]}</span><span class="lplus" aria-hidden="true"></span></summary>'
                  f'<div class="lbody"><p>{what}</p><div class="lmeta"><span class="metric">{escape(stack, quote=False)}</span>{live}</div></div></details>')
-    return f'<div class="lib" data-library><div class="lchips" role="group" aria-label="Filter by type">{chips}</div><div class="lrows">{rows}</div></div>'
+    focus = "".join(
+        f'<div class="lfocus" data-focus="{k}" hidden><span class="eyebrow">You opened</span><h3>{t}</h3><p>{d}</p>'
+        f'<p class="lfn">Here are the {len(n)} I have built. <button type="button" class="lall">Show all {len(LIBRARY)} systems</button></p></div>'
+        for k, (t, d, n) in FOCUS.items()
+    )
+    return (f'<div class="lib" data-library>{focus}<div class="lchips" role="group" aria-label="Filter by type">{chips}</div>'
+            f'<div class="lrows">{rows}</div></div>')
 
 
 def library_count() -> str:
