@@ -25,7 +25,7 @@ CASES = [
     ("02", "Germany", "Viewon.AI", "A year leading product marketing and market entry for an AI platform, with the partnerships that gave it credibility.", "45%", "adoption growth in one quarter"),
     ("03", "Nigeria", "Endow", "A creator platform entering a new market with fewer than 50 users. Positioning plus community-led acquisition.", "~600", "users in two weeks"),
     ("04", "Edtech", "Utiva", "A time-boxed event with a 72-hour window to fill the room. It became a repeat engagement.", "2,000+", "attendees in 72 hours"),
-    ("05", "My product", "Opptiq", "An AI product I specified, built, priced and launched. Two LinkedIn posts, no ads.", "260+", "organic users in under 3 weeks, with paying customers"),
+    ("05", "My product", "Opptiq", "An AI product I specified, built, priced and launched. Two LinkedIn posts, no ads.", "260+", "organic users in 2+ weeks, with paying users"),
     ("06", "Founders &amp; startups", "Client portfolio", "Product marketing, monetisation and AI-enabled growth systems for founders, across a distributed team.", "15+", "launches &amp; experiments"),
 ]
 
