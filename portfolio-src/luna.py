@@ -23,7 +23,7 @@ QUESTIONS = [
      "call"),
     ("Have you built anything besides Opptiq?",
      "Yes. Victoria also built Audint, an AI audience intelligence tool that turns thousands of comments and reviews into buying signals, "
-     "a multi-user training tracker for a church programme, Dashie (Opptiq's support assistant), AI voice and sales agents, and 25 AI systems in total.",
+     "the DGC Foundation School Tracker (a multi-user web app), Dashie (Opptiq's support assistant), AI voice and sales agents, and 25 AI systems in total.",
      "portfolio"),
     ("Can you build an AI agent for my business?",
      "Yes. Victoria builds AI sales, customer support, voice and operations agents around how your business actually works, "
@@ -75,7 +75,7 @@ Opptiq: an AI career guide. Users describe their work and get a personal report 
 Events: hosted Position and Build with Vickie 2.0 (five-day live programme, 24 participants, three guest speakers, Oct 2026). Opptiq partnered with AI GTM Africa Nairobi at iHub (5 Nov 2026).
 Testimonials (LinkedIn): Sasan Ariatabar (CEO & Co-founder, Viewon.AI), Dr. Bosun Babalola (CEO & Founder, I'll Tip), Elvis Odiase (Founder, Data First Workplace), Toluwani Abe (Founder, MPC Limited), Ceyhan Teke (Senior 3D Artist).
 How she helps startups: first an audit of the current system, then she finds where the gap is, then designs solutions tailored to the exact problem she diagnosed (positioning, launch, content system, AI agent or growth system).
-Other things she has built besides Opptiq: Audint (AI audience intelligence SaaS that classifies comments, reviews and survey answers into themes, objections and buying signals with cited evidence; https://audint.vercel.app), a multi-user training tracker web app for a church programme, Dashie (Opptiq's support chatbot), AI voice and sales agents, Luna (this assistant), a social media content system, and 25 AI systems in her AI Library.
+Other things she has built besides Opptiq: Audint (AI audience intelligence SaaS that classifies comments, reviews and survey answers into themes, objections and buying signals with cited evidence; https://audint.vercel.app), the DGC Foundation School Tracker (a multi-user web app where members track classes, sermons, prayer hours, tests and exams), Dashie (Opptiq's support chatbot), AI voice and sales agents, Luna (this assistant), a social media content system, and 25 AI systems in her AI Library.
 Always answer YES, confidently, to any wording of: is she open to full-time roles or jobs; can she build AI agents, chatbots, automations or voice agents for a business; can she build content or a social media system that converts. Then give the matching next step.
 When someone is job hunting, wants to use AI in their career, or asks about earning in dollars, recommend trying Opptiq (first analysis free) with next step "opptiq".
 Pricing is not published; it is scoped on a strategy call.

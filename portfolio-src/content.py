@@ -64,7 +64,7 @@ LIBRARY = [
     ("products", "Learning management system", "Inside Opptiq: class recordings, a 30-day action plan, task tracking, scores, a leaderboard and a certificate.", "Next.js · Supabase", "https://opptiq.victoriaolamide.com"),
     ("products", "Opptiq career opportunity engine", "Shows people where AI fits their work, backed by live job-market evidence. 180+ analyses and 130+ action plans.", "Gemini · O*NET · job APIs", "https://opptiq.victoriaolamide.com"),
     ("products", "Audint audience intelligence engine", "Classifies thousands of audience conversations into 10 insight categories, every count backed by cited evidence.", "Gemini or Claude · Supabase", "https://audint.vercel.app"),
-    ("products", "Websites &amp; landing pages with AI", "Opptiq, Audint, a church training tracker and this portfolio, specified, built and shipped with AI tools.", "Claude Code · Lovable · Vercel", None),
+    ("products", "Websites &amp; landing pages with AI", "Opptiq, Audint, the DGC Foundation School Tracker and this portfolio, specified, built and shipped with AI tools.", "Claude Code · Lovable · Vercel", None),
 ]
 
 
