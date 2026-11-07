@@ -238,7 +238,7 @@ def page() -> str:
     <div class="opq-copy rv">
       <span class="eyebrow">My AI product</span>
       <h2>Try the Opptiq app <em class="s">today.</em></h2>
-      <p class="opq-lead">Opptiq is your AI career guide. Tell it about your work and in minutes you get a personal report on where AI fits your skills, and how to earn in dollars with them.</p>
+      <p class="opq-lead">Opptiq is your AI career guide. Tell it about your work and in minutes you get a personal report on where AI fits your skills, and how to earn remotely in dollars globally with them.</p>
       <ul class="opq-list">
         <li><b>Your AI career report in minutes</b><span>Where AI fits your skills and the problems you could solve.</span></li>
         <li><b>Real remote jobs, found for you</b><span>Roles paying thousands of dollars for the skills you already have.</span></li>
