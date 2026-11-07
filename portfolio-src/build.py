@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / "public" / "portfolio"
 SITE = "https://victoriaolamide.com"
+CALENDLY = "https://calendly.com/hello-victoriaolamide/30min"
 
 PAGES = {
     "home": "",
@@ -22,7 +23,7 @@ NAV = [
     ("home", "Home", "/portfolio"),
     ("resume", "Résumé", "/portfolio/resume"),
     ("work", "My Work", "/portfolio/work"),
-    ("ai-systems", "AI Systems", "/portfolio/ai-systems"),
+    ("ai-systems", "AI Agents", "/portfolio/ai-systems"),
     ("achievements", "Key Achievements", "/portfolio/achievements"),
     ("about", "About", "/portfolio/about"),
 ]
@@ -59,7 +60,7 @@ LAYOUT = """<!doctype html>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav-links"><span>Menu</span></button>
     <ul class="nav-links" id="nav-links">
 {nav}
-      <li class="nav-cta"><a class="btn btn-dark btn-s" href="mailto:hello@victoriaolamide.com?subject=Let%27s%20talk">Let's talk <span class="arrow">&rarr;</span></a></li>
+      <li class="nav-cta"><a class="btn btn-dark btn-s" href="{cal}" target="_blank" rel="noopener">Book a call <span class="arrow">&rarr;</span></a></li>
     </ul>
   </div>
 </header>
@@ -72,7 +73,8 @@ LAYOUT = """<!doctype html>
     <h2>Let's build what comes <em class="s">next.</em></h2>
     <p>Open to senior product marketing, go-to-market leadership and AI product roles with remote-first teams worldwide, plus selected advisory and founding-team conversations.</p>
     <div class="cta-row">
-      <a class="btn btn-cream" href="mailto:hello@victoriaolamide.com?subject=Let%27s%20talk">Email me <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-cream" href="{cal}" target="_blank" rel="noopener">Book a 30-min strategy call <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-line" href="mailto:hello@victoriaolamide.com">hello@victoriaolamide.com</a>
       <a class="btn btn-line" href="https://www.linkedin.com/in/victoria-olamide" target="_blank" rel="noopener">LinkedIn &nearr;</a>
       <a class="btn btn-line" href="/portfolio/Victoria-Olamide-CV.pdf" download>Download CV &darr;</a>
     </div>
@@ -108,10 +110,27 @@ def main() -> None:
             f'      <li><a href="{href}"{cur if key == slug else ""}>{label}</a></li>'
             for key, label, href in NAV
         )
+        import re
+        from scenes import render
+        from scenes import icon as _icon, GOLD as _GOLD
+        counter = {"n": 0}
+
+        def _scene(m):
+            counter["n"] += 1
+            svg = render(m.group(1))
+            sfx = f"-u{counter['n']}"
+            svg = re.sub(r'id="([^"]+)"', lambda k: f'id="{k.group(1)}{sfx}"', svg)
+            svg = re.sub(r'url\(#([^)]+)\)', lambda k: f'url(#{k.group(1)}{sfx})', svg)
+            svg = re.sub(r'href="#([^"]+)"', lambda k: f'href="#{k.group(1)}{sfx}"', svg)
+            return svg
+
+        body = re.sub(r"\{\{scene:([a-z]+)\}\}", _scene, body)
+        body = re.sub(r"\{\{icon:([a-z]+)\}\}", lambda m: '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">' + _icon(m.group(1), 12, 12, 24, _GOLD) + "</svg>", body)
+        body = body.replace("{{calendly}}", CALENDLY)
         path = f"/portfolio/{sub}".rstrip("/")
         html = LAYOUT.format(
             title=meta["title"], desc=meta["desc"], url=SITE + path, site=SITE,
-            nav=nav, body=body.strip(), v=v,
+            nav=nav, body=body.strip(), v=v, cal=CALENDLY,
             cta_eyebrow=meta.get("cta", "Let's work together"),
         )
         target = OUT / sub / "index.html" if sub else OUT / "index.html"
