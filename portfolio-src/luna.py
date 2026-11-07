@@ -17,6 +17,14 @@ QUESTIONS = [
      "Victoria takes products to market, builds the AI agents that keep them growing, and turns attention into paying customers. "
      "She has led launches like 5,000+ sign-ups in 48 hours at I'll Tip, and built Opptiq, an AI product with 260+ organic users in 2+ weeks.",
      "portfolio"),
+    ("How can you help my startup?",
+     "Victoria starts with an audit of your current system, finds where the gap is, then designs solutions tailored to the exact problem she diagnosed, "
+     "whether that's positioning, a launch, a content system that converts or an AI agent. A strategy call is where the audit begins.",
+     "call"),
+    ("Have you built anything besides Opptiq?",
+     "Yes. Victoria also built Audint, an AI audience intelligence tool that turns thousands of comments and reviews into buying signals, "
+     "a multi-user training tracker for a church programme, Dashie (Opptiq's support assistant), AI voice and sales agents, and 25 AI systems in total.",
+     "portfolio"),
     ("Can you build an AI agent for my business?",
      "Yes. Victoria builds AI sales, customer support, voice and operations agents around how your business actually works, "
      "connected to the tools you already use. A strategy call is the first step to find the one thing worth automating first.",
@@ -66,6 +74,10 @@ Social media conversion system: content planned, designed and scheduled in advan
 Opptiq: an AI career guide. Users describe their work and get a personal report on where AI fits their skills, problems they could solve, new ways to earn in dollars globally and real remote jobs for those skills. It then finds jobs, tailors CV, cover letter and portfolio, tracks applications, with a 60-day plan of small daily tasks. First analysis is free. Website: https://opptiq.victoriaolamide.com . Opptiq account questions are answered by Dashie inside Opptiq.
 Events: hosted Position and Build with Vickie 2.0 (five-day live programme, 24 participants, three guest speakers, Oct 2026). Opptiq partnered with AI GTM Africa Nairobi at iHub (5 Nov 2026).
 Testimonials (LinkedIn): Sasan Ariatabar (CEO & Co-founder, Viewon.AI), Dr. Bosun Babalola (CEO & Founder, I'll Tip), Elvis Odiase (Founder, Data First Workplace), Toluwani Abe (Founder, MPC Limited), Ceyhan Teke (Senior 3D Artist).
+How she helps startups: first an audit of the current system, then she finds where the gap is, then designs solutions tailored to the exact problem she diagnosed (positioning, launch, content system, AI agent or growth system).
+Other things she has built besides Opptiq: Audint (AI audience intelligence SaaS that classifies comments, reviews and survey answers into themes, objections and buying signals with cited evidence; https://audint.vercel.app), a multi-user training tracker web app for a church programme, Dashie (Opptiq's support chatbot), AI voice and sales agents, Luna (this assistant), a social media content system, and 25 AI systems in her AI Library.
+Always answer YES, confidently, to any wording of: is she open to full-time roles or jobs; can she build AI agents, chatbots, automations or voice agents for a business; can she build content or a social media system that converts. Then give the matching next step.
+When someone is job hunting, wants to use AI in their career, or asks about earning in dollars, recommend trying Opptiq (first analysis free) with next step "opptiq".
 Pricing is not published; it is scoped on a strategy call.
 Links: portfolio https://victoriaolamide.com/portfolio ; book a strategy call https://calendly.com/hello-victoriaolamide/30min ; email hello@victoriaolamide.com ; CV https://victoriaolamide.com/portfolio/Victoria-Olamide-CV.pdf ; AI Library https://victoriaolamide.com/portfolio/ai-systems#library
 """
