@@ -22,6 +22,7 @@ export const navigation = {
     { label: "About", href: "#about" },
     { label: "Expertise", href: "#expertise" },
     { label: "FAQ", href: "#faq" },
+    { label: "Portfolio", href: "/portfolio" },
   ],
   cta: { label: "Work With Me", href: "mailto:hello@victoriaolamide.com" },
 } as const;
@@ -43,10 +44,10 @@ export const results = {
       value: 5000,
       prefix: "",
       suffix: "+",
-      label: "sign-ups generated\nwithin 24 hours",
+      label: "sign-ups generated\nwithin 48 hours",
     },
     {
-      value: 64,
+      value: 46,
       prefix: "~",
       suffix: "%",
       label: "of launch sign-ups\nbecame paid users",
@@ -76,14 +77,14 @@ export const work = {
     {
       num: "01",
       client: "I'll Tip",
-      industry: "Consumer fintech",
+      industry: "Professional network & hiring",
       role: "Product Marketing Execution",
       problem:
         "A consumer product entering a competitive market needed to turn attention into sign-ups, fast.",
       done: "Led product marketing and go-to-market execution for the launch.",
       outcome: "5,000+",
-      outcomeNote: "sign-ups in 24 hours",
-      metrics: ["5,000+ sign-ups (24h)", "~64% paid users"],
+      outcomeNote: "sign-ups in 48 hours",
+      metrics: ["5,000+ sign-ups (48h)", "~46% paid users"],
     },
     {
       num: "02",
@@ -105,9 +106,9 @@ export const work = {
       problem:
         "A creator-focused platform entering the Nigerian market needed to turn a fresh launch into real early usage, fast.",
       done: "Coordinated the product launch and go-to-market execution, combining positioning, community-led acquisition and influencer activation to drive adoption.",
-      outcome: "600+",
+      outcome: "~600",
       outcomeNote: "users in 2 weeks",
-      metrics: ["Fewer than 50 to 600+ users in 2 weeks", "Community-led acquisition"],
+      metrics: ["Fewer than 50 to ~600 users in 2 weeks", "Community-led acquisition"],
     },
     {
       num: "04",
