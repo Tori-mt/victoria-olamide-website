@@ -268,21 +268,8 @@ def page() -> str:
   </div>
 </section>
 
-<section class="sec dark">
-  <div class="wrap">
-    <div class="head rv">
-      <span class="eyebrow">How I work</span>
-      <h2>Understand the customer. <em class="s">Then build what sells.</em></h2>
-    </div>
-    <div class="pillars">
-      <div class="pillar rv"><i>01</i><h3>Product &amp; positioning</h3><p>I research customers, find the problem that matters and shape the one message that makes a product easy to choose.</p></div>
-      <div class="pillar rv"><i>02</i><h3>Go-to-market</h3><p>Launch plans, acquisition, partnerships and conversion, measured until the number moves and written into a playbook.</p></div>
-      <div class="pillar rv"><i>03</i><h3>AI implementation</h3><p>AI agents, products and automations built around real business needs, so teams move faster with less manual work.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="sec white" id="faq">
+<section class="sec dark" id="faq">
   <div class="wrap">
     <div class="head center rv">
       <span class="eyebrow">FAQ</span>
