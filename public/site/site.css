@@ -344,3 +344,4 @@ footer a:hover { color: var(--gold-soft); }
 @media (max-width: 360px) { .result b, .chip b { font-size: 1.2rem; } .result span, .chip span { font-size: .78rem; } .case, .chip { padding-left: 1rem; padding-right: 1rem; } }
 @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); } }
 .closing { grid-template-columns: 1fr; text-align: center; justify-items: center; } .closing .row { justify-content: center; }
+@media (max-width: 980px) { .hero { background: radial-gradient(ellipse 85% 34% at 50% 24%, rgba(246,200,106,.9) 0%, rgba(232,160,48,.6) 35%, rgba(160,96,20,.3) 62%, transparent 82%), linear-gradient(180deg, #2a1d0b 0%, #1a1409 55%, #140e06 100%); } .hero::before { -webkit-mask-image: radial-gradient(ellipse at 50% 25%, #000 0%, transparent 60%); mask-image: radial-gradient(ellipse at 50% 25%, #000 0%, transparent 60%); } }
