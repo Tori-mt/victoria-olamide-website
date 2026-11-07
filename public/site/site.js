@@ -105,7 +105,7 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Numbers count up when they scroll into view: "5,000+", "~46%", "260+", "45%" ...
-  var nums = document.querySelectorAll(".stat b, .chip b, .result b");
+  var nums = document.querySelectorAll(".stat b");
   nums.forEach(function (el) {
     var m = el.textContent.trim().match(/^([^\d]*)([\d,]+)(.*)$/);
     if (!m) return;

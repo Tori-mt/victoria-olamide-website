@@ -392,3 +392,9 @@ footer a:hover { color: var(--gold-soft); }
   .faq details:hover { transform: none; }
   .faq details.popped { animation: none; }
 }
+/* Partner with me: ring rippling out, like Dashie */
+.ring { overflow: visible; isolation: isolate; }
+.ring::after { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 2px solid rgba(240,160,32,.85); z-index: -1; pointer-events: none; animation: dashie-ring 2.2s ease-out infinite; }
+.btn.ring { position: relative; }
+.foot { border-top: 1px solid var(--line-d); }
+@media (prefers-reduced-motion: reduce) { .ring::after { display: none; } }

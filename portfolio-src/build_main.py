@@ -25,7 +25,7 @@ CASES = [
     ("02", "Germany", "Viewon.AI", "A year leading product marketing and market entry for an AI platform, with the partnerships that gave it credibility.", "45%", "adoption growth in one quarter"),
     ("03", "Nigeria", "Endow", "A creator platform entering a new market with fewer than 50 users. Positioning plus community-led acquisition.", "~600", "users in two weeks"),
     ("04", "Edtech", "Utiva", "A time-boxed event with a 72-hour window to fill the room. It became a repeat engagement.", "2,000+", "attendees in 72 hours"),
-    ("05", "My product", "Opptiq", "An AI product I specified, built, priced and launched. Two LinkedIn posts, no ads.", "260+", "organic users, with paying customers"),
+    ("05", "My product", "Opptiq", "An AI product I specified, built, priced and launched. Two LinkedIn posts, no ads.", "260+", "organic users in under 3 weeks, with paying customers"),
     ("06", "Founders &amp; startups", "Client portfolio", "Product marketing, monetisation and AI-enabled growth systems for founders, across a distributed team.", "15+", "launches &amp; experiments"),
 ]
 
@@ -179,7 +179,7 @@ def page() -> str:
       <p>Six projects: the challenge, what I did, and the result. You'll find the full details in my portfolio.</p>
     </div>
     <div class="cases">{cases}</div>
-    <div class="row rv" style="margin-top:2rem"><a class="btn btn-line" href="/portfolio/work">See all my work &rarr;</a></div>
+    <div class="row rv" style="margin-top:2rem"><a class="btn btn-gold pulse" href="/portfolio/work">See all my work &rarr;</a></div>
   </div>
 </section>
 
@@ -218,7 +218,7 @@ def page() -> str:
         <div class="ev rv"><i>01</i><div><span class="k">Host &amp; programme lead · Oct 2026</span><h3>Position and Build with Vickie 2.0</h3><p>A five-day live programme on positioning and building with AI for 24 participants, with three guest speakers. I designed the curriculum, led every session and demoed Opptiq live on day one.</p></div></div>
         <div class="ev rv"><i>02</i><div><span class="k">Partner · iHub Nairobi · 5 Nov 2026</span><h3>AI GTM Africa Nairobi</h3><p>Opptiq partnered with AI GTM Africa's Nairobi edition at iHub, bringing AI career intelligence to founders and operators in East Africa.</p></div></div>
         <div class="ev rv"><i>03</i><div><span class="k">Founder · Ongoing</span><h3>The Opptiq community</h3><p>Professionals learning to add AI to the work they already do, with class recordings, a leaderboard and a 30-day action plan.</p></div></div>
-        <div class="row rv" style="margin-top:1.6rem"><a class="btn btn-gold pulse" href="mailto:hello@victoriaolamide.com?subject=Partnership">Partner with me &rarr;</a></div>
+        <div class="row rv" style="margin-top:1.6rem"><a class="btn btn-gold pulse ring" href="mailto:hello@victoriaolamide.com?subject=Partnership">Partner with me &rarr;</a></div>
       </div>
       <div class="ev-media rv">
         <figure><img src="/site/img/aigtm-backdrop.jpg" alt="AI GTM Africa Nairobi partner backdrop featuring the Opptiq logo" loading="lazy" width="1080" height="737" /><figcaption>AI GTM Africa Nairobi · Opptiq among the partners</figcaption></figure>
@@ -281,20 +281,6 @@ def page() -> str:
   </div>
 </section>
 
-<section class="sec cream" style="padding-top:clamp(3rem,6vw,4.5rem)">
-  <div class="wrap">
-    <div class="closing rv">
-      <div>
-        <h2>Let's build what comes <em class="s">next.</em></h2>
-        <p>View my portfolio to work with me.</p>
-      </div>
-      <div class="row">
-        <a class="btn btn-cream shine breathe" href="/portfolio">View my portfolio &rarr;</a>
-        <a class="btn btn-line" href="{CAL}" target="_blank" rel="noopener">Book a strategy call</a>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer class="foot">
