@@ -21,3 +21,38 @@
   }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
   els.forEach(function (e) { io.observe(e); });
 })();
+
+// Testimonials: autoplay, swipe (native scroll-snap), dots, arrows.
+document.querySelectorAll("[data-carousel]").forEach(function (car) {
+  var track = car.querySelector(".ttrack");
+  var slides = track.children;
+  var dots = car.querySelectorAll(".tdot");
+  var i = 0, timer = null;
+  function go(n) {
+    i = (n + slides.length) % slides.length;
+    track.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: "smooth" });
+  }
+  function mark() {
+    var step = slides[0].offsetWidth + 16;
+    i = Math.round(track.scrollLeft / step);
+    dots.forEach(function (d, k) { d.classList.toggle("on", k === i); });
+  }
+  function stop() { if (timer) clearInterval(timer); timer = null; }
+  function play() {
+    stop();
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      timer = setInterval(function () { go(i + 1); }, 6500);
+    }
+  }
+  track.addEventListener("scroll", function () { window.requestAnimationFrame(mark); }, { passive: true });
+  car.querySelector(".prev").addEventListener("click", function () { go(i - 1); play(); });
+  car.querySelector(".next").addEventListener("click", function () { go(i + 1); play(); });
+  dots.forEach(function (d, k) { d.addEventListener("click", function () { go(k); play(); }); });
+  car.addEventListener("mouseenter", stop);
+  car.addEventListener("mouseleave", play);
+  track.addEventListener("touchstart", stop, { passive: true });
+  track.addEventListener("touchend", play, { passive: true });
+  mark();
+  play();
+});
+
