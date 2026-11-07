@@ -114,6 +114,7 @@ def page() -> str:
     <ul class="links" id="links">
       <li><a href="#cases">Results</a></li>
       <li><a href="#agents">AI Agents</a></li>
+      <li><a href="#opptiq">Opptiq</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#creators">Social Media Conversion System</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -204,6 +205,30 @@ def page() -> str:
     <div class="row rv" style="margin-top:2rem">
       <a class="btn btn-gold" href="{CAL}" target="_blank" rel="noopener">Book a strategy call &rarr;</a>
       <a class="btn btn-line" href="/portfolio/ai-systems#library">Browse my AI Library</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec opptiq-band" id="opptiq">
+  <div class="wrap opq">
+    <div class="opq-copy rv">
+      <span class="eyebrow">My AI product</span>
+      <h2>Try the Opptiq app <em class="s">today.</em></h2>
+      <p class="opq-lead">Opptiq is your AI career guide. Tell it about your work and in minutes you get a personal report on where AI fits your skills, and how to earn in dollars with them.</p>
+      <ul class="opq-list">
+        <li><b>Your AI career report in minutes</b><span>Where AI fits your skills and the problems you could solve.</span></li>
+        <li><b>Real remote jobs, found for you</b><span>Roles paying thousands of dollars for the skills you already have.</span></li>
+        <li><b>Your CV, cover letter and a 60-day plan</b><span>Tailored to each job, with small daily tasks so you land the role.</span></li>
+      </ul>
+      <p class="opq-proof"><b>260+</b> organic users in 2+ weeks, with paying users.</p>
+      <div class="row">
+        <a class="btn btn-gold pulse" href="https://opptiq.victoriaolamide.com/signup" target="_blank" rel="noopener">Get my free analysis &rarr;</a>
+        <a class="btn btn-line" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener" data-install>Install the app</a>
+      </div>
+      <small class="opq-note">Your first analysis is free. No card needed.</small>
+    </div>
+    <div class="opq-phone rv" aria-hidden="true">
+      <div class="phone"><span class="notch"></span><img src="/site/img/opptiq-phone.jpg" alt="" width="640" height="1280" loading="lazy" /></div>
     </div>
   </div>
 </section>
@@ -319,6 +344,20 @@ def page() -> str:
     </div>
   </div>
 </footer>
+<dialog class="contact install" id="install" aria-labelledby="install-title">
+  <div class="cform">
+    <button class="cx" type="button" data-close-install aria-label="Close">&times;</button>
+    <span class="eyebrow">Install the app</span>
+    <h3 id="install-title">Put Opptiq on your home screen</h3>
+    <p class="csub">It installs straight from your browser in a few seconds. No app store needed.</p>
+    <ol class="steps-ol">
+      <li><b>iPhone or iPad:</b> open Opptiq in Safari, tap <b>Share</b>, then <b>Add to Home Screen</b>.</li>
+      <li><b>Android:</b> open Opptiq in Chrome and tap <b>Install app</b> (or menu, then <b>Add to Home screen</b>).</li>
+      <li><b>Computer:</b> open Opptiq and click <b>Add to Desktop</b> at the top.</li>
+    </ol>
+    <a class="btn btn-gold" href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener">Open Opptiq &rarr;</a>
+  </div>
+</dialog>
 <dialog class="contact" id="contact" aria-labelledby="contact-title">
   <form class="cform" method="dialog" novalidate>
     <button class="cx" type="button" data-close aria-label="Close">&times;</button>

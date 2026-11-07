@@ -298,3 +298,14 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
       });
   });
 })();
+
+// Install the app: show quick steps, then send people to Opptiq where the real install button lives.
+(function () {
+  var dlg = document.getElementById("install");
+  if (!dlg || typeof dlg.showModal !== "function") return;
+  document.querySelectorAll("[data-install]").forEach(function (a) {
+    a.addEventListener("click", function (e) { e.preventDefault(); dlg.showModal(); });
+  });
+  dlg.querySelector("[data-close-install]").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+})();

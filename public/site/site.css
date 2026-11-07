@@ -439,3 +439,32 @@ footer a:hover { color: var(--gold-soft); }
   .luna { right: .5rem; left: .5rem; width: auto; bottom: 4.4rem; height: min(34rem, calc(100svh - 6rem)); }
 }
 @media (prefers-reduced-motion: reduce) { .luna-btn { animation: none; } .luna-btn::after { display: none; } .luna { animation: none; } }
+
+/* ===== Try Opptiq section ===== */
+.opptiq-band { color: var(--on); overflow: hidden; isolation: isolate;
+  background: radial-gradient(ellipse 45% 70% at 78% 50%, rgba(246,170,40,.55) 0%, rgba(200,110,20,.25) 45%, transparent 75%), linear-gradient(160deg, #2a1d0b 0%, #1a1409 60%, #120d06 100%);
+  border-top: 1px solid var(--line-d); }
+.opptiq-band .eyebrow { color: var(--gold); }
+.opptiq-band em.s { color: var(--gold-soft); }
+.opq { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.opq > * { min-width: 0; }
+.opq h2 { font-size: clamp(1.95rem, 3.6vw, 2.9rem); margin: .8rem 0 1rem; }
+.opq-lead { color: var(--on-2); font-size: 1.05rem; max-width: 34rem; }
+.opq-list { list-style: none; margin: 1.5rem 0; padding: 0; display: grid; gap: .9rem; }
+.opq-list li { position: relative; padding-left: 2rem; }
+.opq-list li::before { content: "\2713"; position: absolute; left: 0; top: .1rem; width: 1.35rem; height: 1.35rem; border-radius: 50%; display: grid; place-items: center; font-size: .75rem; font-weight: 700; background: var(--grad-gold); color: var(--choc); }
+.opq-list b { display: block; font: 600 1rem var(--f-h); }
+.opq-list span { color: var(--on-2); font-size: .93rem; }
+.opq-proof { margin: 0 0 1.4rem; color: var(--on-2); }
+.opq-proof b { font: 600 1.35rem var(--f-h); color: var(--gold-soft); margin-right: .25rem; }
+.opq-note { display: block; margin-top: .9rem; color: var(--on-3); font-size: .85rem; }
+.opq-phone { display: flex; justify-content: center; }
+@keyframes phone-float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-10px) rotate(-2deg); } }
+.phone { position: relative; width: min(17rem, 72vw); aspect-ratio: 9 / 18.5; border-radius: 2.4rem; padding: .7rem; background: linear-gradient(145deg, #3a2a12, #120d06); box-shadow: 0 40px 80px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(246,200,106,.25), inset 0 0 0 2px rgba(255,255,255,.06); animation: phone-float 5s ease-in-out infinite; }
+.phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 1.8rem; display: block; }
+.phone .notch { position: absolute; top: 1.1rem; left: 50%; transform: translateX(-50%); width: 34%; height: 1.2rem; border-radius: 999px; background: #0b0804; z-index: 2; }
+.steps-ol { margin: .2rem 0 .6rem; padding-left: 1.2rem; display: grid; gap: .55rem; color: var(--ink-2); font-size: .93rem; }
+.steps-ol b { color: var(--ink); }
+@media (max-width: 860px) { .opq { grid-template-columns: 1fr; } .opq-phone { order: -1; } .phone { width: min(14rem, 64vw); } }
+@media (prefers-reduced-motion: reduce) { .phone { animation: none; } }
+.opptiq-band .btn-line { border-color: rgba(251,247,239,.32); color: var(--on); background: transparent; } .opptiq-band .btn-line:hover { border-color: var(--on); }
