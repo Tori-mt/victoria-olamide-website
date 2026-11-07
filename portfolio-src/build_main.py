@@ -114,7 +114,7 @@ def page() -> str:
       <li><a href="#cases">Results</a></li>
       <li><a href="#agents">AI Agents</a></li>
       <li><a href="#events">Events</a></li>
-      <li><a href="#creators">Creators</a></li>
+      <li><a href="#creators">Social Media Conversion System</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
       <li class="cta"><a class="btn btn-gold btn-s" href="{CAL}" target="_blank" rel="noopener">Book a strategy call</a></li>
