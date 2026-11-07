@@ -86,3 +86,16 @@ document.querySelectorAll("[data-carousel]").forEach(function (car) {
       .then(function () { btn.disabled = false; });
   });
 })();
+
+// Logo and name always go back to the top of the home page.
+document.querySelectorAll("[data-home]").forEach(function (a) {
+  a.addEventListener("click", function (e) {
+    if (location.pathname === "/" || location.pathname === "/index.html") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      history.replaceState(null, "", "/");
+      var nav = document.querySelector(".nav");
+      if (nav) nav.classList.remove("open");
+    }
+  });
+});

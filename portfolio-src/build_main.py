@@ -108,7 +108,7 @@ def page() -> str:
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="/">{nav_logo}Victoria Olamide</a>
+    <a class="brand" href="/" data-home>{nav_logo}Victoria Olamide</a>
     <button class="menu" aria-expanded="false" aria-controls="links">Menu</button>
     <ul class="links" id="links">
       <li><a href="#cases">Results</a></li>
@@ -250,12 +250,13 @@ def page() -> str:
     <div class="rv">
       <span class="eyebrow">Content &amp; creators</span>
       <h2>Product marketing for <em class="s">creators.</em></h2>
-      <p>I teach creators and professionals how to position what they know, package it and get paid for it. New series every week on Instagram, LinkedIn, X and TikTok.</p>
+      <p>I teach creators and professionals how to position what they know, package it and get paid for it. New series every week on Instagram, Facebook, LinkedIn, X and TikTok.</p>
       <div class="socials">
         <a href="https://www.instagram.com/victoriaolamide__" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.linkedin.com/in/victoria-olamide" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://x.com/vickieolamide" target="_blank" rel="noopener">X</a>
         <a href="https://www.tiktok.com/@victoriaolamide_" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.facebook.com/olamide.victoria.31" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
     <div class="fan rv">
@@ -296,12 +297,11 @@ def page() -> str:
     <div class="closing rv">
       <div>
         <h2>Let's build what comes <em class="s">next.</em></h2>
-        <p>Hiring for AI product marketing, need AI agents that drive revenue, or planning an event? Start with my portfolio.</p>
+        <p>View my portfolio to work with me.</p>
       </div>
       <div class="row">
         <a class="btn btn-cream" href="/portfolio">View my portfolio &rarr;</a>
         <a class="btn btn-line" href="{CAL}" target="_blank" rel="noopener">Book a strategy call</a>
-        <a class="btn btn-line" href="{MAIL}">Send an email</a>
       </div>
     </div>
   </div>
@@ -312,7 +312,7 @@ def page() -> str:
   <div class="wrap">
     <div class="fcols">
       <div class="fbrand">
-        <a class="brand" href="/">{foot_logo}Victoria Olamide</a>
+        <a class="brand" href="/" data-home>{foot_logo}Victoria Olamide</a>
         <p>AI product marketing, go-to-market and AI agents.</p>
         <a class="fmail" href="{MAIL}">hello@victoriaolamide.com</a>
       </div>
@@ -326,6 +326,7 @@ def page() -> str:
       </ul></div>
       <div><h4>Company</h4><ul>
         <li><a href="/portfolio/about">About me</a></li>
+        <li><a href="#creators">Creators</a></li>
         <li><a href="{MAIL}" data-contact>Contact me</a></li>
         <li><a href="{CAL}" target="_blank" rel="noopener">Book a strategy call</a></li>
       </ul></div>
