@@ -48,7 +48,7 @@ LIBRARY = [
     ("research", "Competitor Analysis Agent", "Researches competitors' positioning, pricing and messaging, then summarises the gaps worth owning.", "Claude · Firecrawl", None),
     ("research", "Product Messaging Assistant", "Turns customer insight into positioning statements, value propositions and launch messaging.", "Claude", None),
     ("research", "Lifecycle email system", "Opptiq's onboarding, campaign and support emails, with preferences, unsubscribes and delivery tracking handled.", "Resend · Supabase", None),
-    ("content", "Social content management system", "Plans, renders and schedules carousels and posts across Instagram, Facebook, X and TikTok from short written briefs. Produced a 58-post calendar.", "Python · Claude Code · Meta Business Suite", None),
+    ("content", "Social content management system", "Plans, renders and schedules carousels and posts across Instagram, Facebook, X and TikTok from short written briefs. Produced two months of content in advance that converted.", "Python · Claude Code · Meta Business Suite", None),
     ("content", "Meta Ads Strategy Agent", "Drafts audiences, angles and ad copy for Meta campaigns, ready for human approval.", "Claude · Meta", None),
     ("content", "Facebook Ads Automation", "Builds and manages Facebook ad drafts end to end, with approval required before anything goes live.", "Meta Business Suite", None),
     ("outreach", "Personalised cold email system", "Researches each prospect and sends a personalised email with tailored attachments, one prospect at a time.", "Apollo · Clay · Claude Code", None),

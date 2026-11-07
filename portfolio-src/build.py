@@ -78,7 +78,6 @@ LAYOUT = """<!doctype html>
     <div class="cta-row">
       <a class="btn btn-cream" href="{cal}" target="_blank" rel="noopener">Book a strategy call <span class="arrow">&rarr;</span></a>
       <a class="btn btn-line" href="mailto:hello@victoriaolamide.com?subject=Hello%20Victoria">Send an email &rarr;</a>
-      <a class="btn btn-line" href="https://www.linkedin.com/in/victoria-olamide" target="_blank" rel="noopener">LinkedIn &nearr;</a>
       <a class="btn btn-line" href="/portfolio/Victoria-Olamide-CV.pdf" download>Download CV &darr;</a>
     </div>
   </div>
@@ -86,7 +85,7 @@ LAYOUT = """<!doctype html>
 </main>
 <footer class="foot">
   <div class="wrap">
-    <span>&copy; 2026 Victoria Olamide &middot; Founder, Creataws Ltd (Opptiq, Audint) &middot; Working remotely worldwide</span>
+    <span>&copy; 2026 Victoria Olamide &middot; Founder, Creataws Ltd (Opptiq) &middot; Open to roles with US and UK startups</span>
     <nav aria-label="Footer">
       <a href="/">Main website</a>
       <a href="https://opptiq.victoriaolamide.com" target="_blank" rel="noopener">Opptiq</a>
