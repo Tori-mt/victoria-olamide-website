@@ -14,7 +14,7 @@ from content import testimonials, LIBRARY
 from luna import widget_html as luna_widget, write_kb as luna_write_kb
 SIGNUP = "https://opptiq.victoriaolamide.com/signup"
 DASHIE = "https://opptiq.victoriaolamide.com/?support=open"
-CREATAWS = "https://www.linkedin.com/company/creataws/"
+CREATAWS = "https://creataws.victoriaolamide.com"
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / "index.html"
@@ -116,6 +116,7 @@ def page() -> str:
       <li><a href="#agents">AI Agents</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#opptiq">Opptiq</a></li>
+      <li><a href="#creataws">Creataws</a></li>
       <li><a href="#creators">Social Media Conversion System</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
@@ -253,6 +254,29 @@ def page() -> str:
     <div class="opq-phone rv" aria-hidden="true">
       <div class="phone"><span class="notch"></span><img src="/site/img/opptiq-phone.jpg" alt="" width="640" height="1280" loading="lazy" /></div>
     </div>
+  </div>
+</section>
+
+<section class="sec dark" id="creataws">
+  <div class="wrap cw">
+    <div class="cw-copy rv">
+      <span class="eyebrow">My company</span>
+      <h2>Creataws: strategy <em class="s">plus the build.</em></h2>
+      <p class="cw-lead">Creataws is my full-cycle go-to-market and AI growth firm for products the market can't ignore. We help startups, scale-ups and companies launch, win the right customers and keep growing with AI.</p>
+      <ul class="opq-list">
+        <li><b>Go-to-market, launches and positioning</b><span>The plan and the story that turn day one into momentum.</span></li>
+        <li><b>Content systems that convert</b><span>Months of posts, ready before day one, across five platforms.</span></li>
+        <li><b>AI agents and AI products</b><span>Sales, support, voice and operations agents, plus 25 AI systems built.</span></li>
+      </ul>
+      <div class="row">
+        <a class="btn btn-gold pulse" href="https://creataws.victoriaolamide.com" target="_blank" rel="noopener">Visit Creataws &rarr;</a>
+        <a class="btn btn-line" href="https://creataws.victoriaolamide.com/ai-systems" target="_blank" rel="noopener">See the AI systems</a>
+      </div>
+    </div>
+    <a class="cw-shot rv" href="https://creataws.victoriaolamide.com" target="_blank" rel="noopener" aria-label="Open the Creataws website">
+      <span class="cw-bar"><i></i><i></i><i></i><em>creataws.victoriaolamide.com</em></span>
+      <img src="/site/img/creataws-site.jpg" alt="The Creataws website homepage: Strategy plus the build." width="1200" height="750" loading="lazy" />
+    </a>
   </div>
 </section>
 
