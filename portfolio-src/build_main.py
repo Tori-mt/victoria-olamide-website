@@ -110,7 +110,8 @@ def page() -> str:
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="/" data-home>{nav_logo}Victoria Olamide</a>
-    <button class="menu" aria-expanded="false" aria-controls="links">Menu</button>
+    <div class="navr"><a class="btn btn-gold btn-s navcta" href="{CAL}" target="_blank" rel="noopener">Book a strategy call</a>
+    <button class="menu" aria-expanded="false" aria-controls="links">Menu</button></div>
     <ul class="links" id="links">
       <li><a href="#cases">Results</a></li>
       <li><a href="#agents">AI Agents</a></li>
@@ -257,29 +258,6 @@ def page() -> str:
   </div>
 </section>
 
-<section class="sec dark" id="creataws">
-  <div class="wrap cw">
-    <div class="cw-copy rv">
-      <span class="eyebrow">My company</span>
-      <h2>Creataws: strategy <em class="s">plus the build.</em></h2>
-      <p class="cw-lead">Creataws is my full-cycle go-to-market and AI growth firm for products the market can't ignore. We help startups, scale-ups and companies launch, win the right customers and keep growing with AI.</p>
-      <ul class="opq-list">
-        <li><b>Go-to-market, launches and positioning</b><span>The plan and the story that turn day one into momentum.</span></li>
-        <li><b>Content systems that convert</b><span>Months of posts, ready before day one, across five platforms.</span></li>
-        <li><b>AI agents and AI products</b><span>Sales, support, voice and operations agents, plus 25 AI systems built.</span></li>
-      </ul>
-      <div class="row">
-        <a class="btn btn-gold pulse" href="https://creataws.victoriaolamide.com" target="_blank" rel="noopener">Visit Creataws &rarr;</a>
-        <a class="btn btn-line" href="https://creataws.victoriaolamide.com/ai-systems" target="_blank" rel="noopener">See the AI systems</a>
-      </div>
-    </div>
-    <a class="cw-shot rv" href="https://creataws.victoriaolamide.com" target="_blank" rel="noopener" aria-label="Open the Creataws website">
-      <span class="cw-bar"><i></i><i></i><i></i><em>creataws.victoriaolamide.com</em></span>
-      <img src="/site/img/creataws-site.jpg" alt="The Creataws website homepage: Strategy plus the build." width="1200" height="750" loading="lazy" />
-    </a>
-  </div>
-</section>
-
 <section class="sec cream" id="creators">
   <div class="wrap creators">
     <div class="rv">
@@ -303,18 +281,26 @@ def page() -> str:
   </div>
 </section>
 
-<section class="sec dark" id="speaking">
-  <div class="wrap">
-    <div class="split rv">
-      <div><span class="eyebrow">Speaking &amp; sessions</span><h2>Ideas I teach <em class="s">live.</em></h2></div>
-      <p>Practical sessions for founders, professionals and creators. Clear frameworks, real launches, no fluff.</p>
+<section class="sec dark" id="creataws">
+  <div class="wrap cw">
+    <div class="cw-copy rv">
+      <span class="eyebrow">My company</span>
+      <h2>Creataws: strategy <em class="s">plus the build.</em></h2>
+      <p class="cw-lead">Creataws is my full-cycle go-to-market and AI growth firm for products the market can't ignore. We help startups, scale-ups and companies launch, win the right customers and keep growing with AI.</p>
+      <ul class="opq-list">
+        <li><b>Go-to-market, launches and positioning</b><span>The plan and the story that turn day one into momentum.</span></li>
+        <li><b>Content systems that convert</b><span>Months of posts, ready before day one, across five platforms.</span></li>
+        <li><b>AI agents and AI products</b><span>Sales, support, voice and operations agents, plus 25 AI systems built.</span></li>
+      </ul>
+      <div class="row">
+        <a class="btn btn-gold pulse" href="https://creataws.victoriaolamide.com" target="_blank" rel="noopener">Visit Creataws &rarr;</a>
+        <a class="btn btn-line" href="https://creataws.victoriaolamide.com/ai-systems" target="_blank" rel="noopener">See the AI systems</a>
+      </div>
     </div>
-    <div class="talks">
-      <div class="talk rv"><i>01 · PBV 2.0</i><h3>Position before you build</h3><p>Why the products that win are the ones people understand in seconds, and how to find that one sentence first.</p></div>
-      <div class="talk rv"><i>02 · Live demo</i><h3>From idea to AI product</h3><p>How a marketer specified, built and launched an AI product with AI tools, and what it took to get paying users.</p></div>
-      <div class="talk rv"><i>03 · Creators</i><h3>Earn beyond brand deals</h3><p>How creators turn what they know into products, offers and income that don't depend on the next sponsorship.</p></div>
-    </div>
-    <div class="row rv" style="margin-top:2rem"><a class="btn btn-line" href="mailto:hello@victoriaolamide.com?subject=Speaking%20invitation">Invite me to speak &rarr;</a></div>
+    <a class="cw-shot rv" href="https://creataws.victoriaolamide.com" target="_blank" rel="noopener" aria-label="Open the Creataws website">
+      <span class="cw-bar"><i></i><i></i><i></i><em>creataws.victoriaolamide.com</em></span>
+      <img src="/site/img/creataws-site.jpg" alt="The Creataws website homepage: Strategy plus the build." width="1200" height="750" loading="lazy" />
+    </a>
   </div>
 </section>
 
@@ -327,6 +313,21 @@ def page() -> str:
       <p>Still curious? Ask Luna at the bottom of the page.</p>
     </div>
     <div class="faq">{faq}</div>
+  </div>
+</section>
+
+<section class="sec dark" id="speaking">
+  <div class="wrap">
+    <div class="split rv">
+      <div><span class="eyebrow">Speaking &amp; sessions</span><h2>Ideas I teach <em class="s">live.</em></h2></div>
+      <p>Practical sessions for founders, professionals and creators. Clear frameworks, real launches, no fluff.</p>
+    </div>
+    <div class="talks">
+      <div class="talk rv"><i>01 · PBV 2.0</i><h3>Position before you build</h3><p>Why the products that win are the ones people understand in seconds, and how to find that one sentence first.</p></div>
+      <div class="talk rv"><i>02 · Live demo</i><h3>From idea to AI product</h3><p>How a marketer specified, built and launched an AI product with AI tools, and what it took to get paying users.</p></div>
+      <div class="talk rv"><i>03 · Creators</i><h3>Earn beyond brand deals</h3><p>How creators turn what they know into products, offers and income that don't depend on the next sponsorship.</p></div>
+    </div>
+    <div class="row rv" style="margin-top:2rem"><a class="btn btn-line" href="mailto:hello@victoriaolamide.com?subject=Speaking%20invitation">Invite me to speak &rarr;</a></div>
   </div>
 </section>
 

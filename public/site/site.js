@@ -13,6 +13,10 @@
     nav.querySelectorAll(".links a").forEach(function (a) {
       a.addEventListener("click", function () { nav.classList.remove("open"); btn.textContent = "Menu"; });
     });
+    // outside click closes menu
+    function closeMenu() { nav.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); btn.textContent = "Menu"; }
+    document.addEventListener("click", function (e) { if (nav.classList.contains("open") && !nav.contains(e.target)) closeMenu(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && nav.classList.contains("open")) { closeMenu(); btn.focus(); } });
   }
   var els = document.querySelectorAll(".rv");
   if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
