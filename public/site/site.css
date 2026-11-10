@@ -503,3 +503,9 @@ footer a:hover { color: var(--gold-soft); }
   .links .cta { display: block; }
   .links { left: 0; right: 0; width: auto; border-radius: 0 0 18px 18px; border-left: 0; border-right: 0; top: 100%; }
 }
+
+/* luna: folded suggestions */
+.luna-chips[hidden] { display: none !important; }
+.luna-more { align-self: flex-start; margin: 0 1rem .6rem; font: 600 .8rem var(--f-h); padding: .4rem .85rem; border-radius: 999px; border: 1px solid rgba(240,160,32,.55); background: #fff; color: var(--gold-ink, #94560a); cursor: pointer; }
+.luna-more:hover { background: rgba(240,160,32,.12); }
+.luna-more[hidden] { display: none !important; }

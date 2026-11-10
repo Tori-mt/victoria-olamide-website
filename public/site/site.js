@@ -184,6 +184,17 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
   var openBtn = document.querySelector("[data-luna-open]");
   var log = panel.querySelector(".luna-log");
   var chipsBox = panel.querySelector(".luna-chips");
+  // Fold the suggestions away after a question so the answer stays readable.
+  var moreBtn = document.createElement("button");
+  moreBtn.type = "button";
+  moreBtn.className = "luna-more";
+  moreBtn.setAttribute("aria-expanded", "false");
+  moreBtn.textContent = "More questions \u25BE";
+  moreBtn.hidden = true;
+  chipsBox.parentNode.insertBefore(moreBtn, chipsBox);
+  function foldChips() { chipsBox.hidden = true; moreBtn.hidden = false; moreBtn.setAttribute("aria-expanded", "false"); }
+  function openChips() { chipsBox.hidden = false; moreBtn.hidden = true; moreBtn.setAttribute("aria-expanded", "true"); var b = chipsBox.querySelector("button"); if (b) b.focus(); }
+  moreBtn.addEventListener("click", openChips);
   var form = panel.querySelector(".luna-form");
   var input = form.querySelector("input");
   var QA = JSON.parse(document.getElementById("luna-data").textContent);
@@ -231,6 +242,7 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
     });
   }
   function askChip(item) {
+    foldChips();
     add("me", esc(item.q));
     history.push({ role: "me", text: item.q });
     setTimeout(function () { add("bot", esc(item.a), item.n); history.push({ role: "luna", text: item.a }); }, 350);
@@ -283,6 +295,7 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
     if (q.length < 2) return;
     input.value = "";
     add("me", esc(q));
+    foldChips();
     var typing = add("bot typing", "<span></span><span></span><span></span>");
     fetch("/api/luna", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ question: q, history: history.slice(-6) }) })
       .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
