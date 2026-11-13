@@ -267,7 +267,21 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
       });
     });
   }
+  // Greeting bubble beside the avatar (Victoria, 13 Nov 2026): appears after a moment, closes for this visit.
+  var launch = document.querySelector(".luna-launch");
+  var greet = launch && launch.querySelector(".luna-greet");
+  if (greet) {
+    var greetOff = false;
+    try { greetOff = sessionStorage.getItem("luna_greet") === "off"; } catch (e) {}
+    if (!greetOff) setTimeout(function () { if (panel.hidden) greet.hidden = false; }, 1200);
+    launch.querySelector("[data-luna-greet]").addEventListener("click", function () { open(); });
+    launch.querySelector("[data-luna-greet-x]").addEventListener("click", function () {
+      greet.hidden = true;
+      try { sessionStorage.setItem("luna_greet", "off"); } catch (e) {}
+    });
+  }
   function open() {
+    if (launch) launch.classList.add("open");
     panel.hidden = false;
     openBtn.setAttribute("aria-expanded", "true");
     openBtn.classList.add("on");
@@ -279,6 +293,7 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
     setTimeout(function () { input.focus(); }, 50);
   }
   function close() {
+    if (launch) launch.classList.remove("open");
     panel.hidden = true;
     openBtn.setAttribute("aria-expanded", "false");
     openBtn.classList.remove("on");
@@ -325,4 +340,22 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
   });
   dlg.querySelector("[data-close-install]").addEventListener("click", function () { dlg.close(); });
   dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+})();
+
+// ===== Visitor stats (Victoria's admin page, 13 Nov 2026) =====
+// One anonymous page view per visit: a random id kept in this browser, the page and where the visitor came
+// from. Country and city are added by the server; no names or IP addresses are stored.
+(function () {
+  try {
+    var id = "";
+    try {
+      id = localStorage.getItem("vo_vid") || "";
+      if (!id && window.crypto && crypto.randomUUID) { id = crypto.randomUUID(); localStorage.setItem("vo_vid", id); }
+    } catch (e) {}
+    var data = JSON.stringify({ v: id, p: location.pathname, r: document.referrer });
+    var url = "https://opptiq.victoriaolamide.com/api/v";
+    if (!(navigator.sendBeacon && navigator.sendBeacon(url, new Blob([data], { type: "text/plain" })))) {
+      fetch(url, { method: "POST", body: data, keepalive: true, mode: "no-cors" });
+    }
+  } catch (e) {}
 })();

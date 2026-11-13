@@ -93,11 +93,17 @@ def write_kb(api_dir: Path) -> None:
 
 def widget_html() -> str:
     data = json.dumps([{"q": q, "a": a, "n": n} for q, a, n in QUESTIONS], ensure_ascii=False).replace("</", "<\\/")
-    return f"""<button class="luna-btn" type="button" aria-haspopup="dialog" aria-controls="luna" data-luna-open><span class="luna-av">L</span>Ask Luna</button>
+    return f"""<div class="luna-launch">
+  <div class="luna-greet" hidden>
+    <button type="button" class="luna-greet-t" data-luna-greet><b>Hi, I'm Luna!</b> Need a hand? Ask me anything about Victoria. <span aria-hidden="true">&#128075;</span></button>
+    <button type="button" class="luna-greet-x" data-luna-greet-x aria-label="Hide this message">&times;</button>
+  </div>
+  <button class="luna-btn" type="button" aria-haspopup="dialog" aria-controls="luna" aria-label="Ask Luna, Victoria's AI assistant" title="Ask Luna" data-luna-open><img src="/site/img/luna.webp" alt="" width="56" height="56" /></button>
+</div>
 <section class="luna" id="luna" role="dialog" aria-label="Luna, Victoria's AI assistant" hidden>
   <header class="luna-head">
-    <span class="luna-av">L</span>
-    <div><b>Luna</b><small>Victoria's AI assistant</small></div>
+    <img class="luna-av" src="/site/img/luna.webp" alt="" width="40" height="40" />
+    <div><b>Ask Luna</b><small>Victoria's AI assistant</small></div>
     <button type="button" class="luna-x" data-luna-close aria-label="Close Luna">&times;</button>
   </header>
   <div class="luna-log" aria-live="polite"></div>

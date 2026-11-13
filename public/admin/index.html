@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Admin · Victoria Olamide</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<!-- Victoria's private admin hub (13 Nov 2026): visitor stats for Creataws, victoriaolamide.com and Opptiq,
+     plus her combined email list. Data comes from Opptiq's API; she signs in with her Opptiq admin account. -->
+<style>
+:root {
+  --choc: #1a1409; --choc-2: #2a1f0f; --gold: #f0a020; --gold-soft: #f6c86a; --gold-ink: #94560a;
+  --cream: #fbf7ef; --card: #ffffff; --ink: #1a1409; --ink-2: rgba(26,20,9,.68); --ink-3: rgba(26,20,9,.48);
+  --line: rgba(26,20,9,.1); --good: #1f7a4a; --bad: #b3261e;
+  --grad-gold: linear-gradient(120deg, #f6c86a 0%, #f0a020 45%, #d9781a 100%);
+  --f-h: "Poppins", system-ui, sans-serif; --f-b: "Manrope", system-ui, sans-serif; --f-m: "DM Mono", ui-monospace, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cream); color: var(--ink); font: 400 15px/1.55 var(--f-b); -webkit-font-smoothing: antialiased; }
+button, input, select { font: inherit; color: inherit; }
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 16px; }
+header.top { background: var(--choc); color: var(--cream); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
+.brand { font: 600 16px var(--f-h); display: flex; align-items: center; gap: 10px; }
+.brand i { font-style: normal; font: 500 11px var(--f-m); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-soft); border: 1px solid rgba(246,200,106,.4); border-radius: 999px; padding: 2px 8px; }
+.ghost { background: transparent; border: 1px solid rgba(251,247,239,.3); color: var(--cream); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-size: 13px; }
+.ghost:hover { background: rgba(251,247,239,.08); }
+nav.tabs { display: flex; gap: 4px; margin: 20px 0 8px; border-bottom: 1px solid var(--line); }
+nav.tabs button { background: none; border: 0; padding: 10px 14px; cursor: pointer; font: 600 14px var(--f-h); color: var(--ink-3); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+nav.tabs button[aria-selected="true"] { color: var(--ink); border-color: var(--gold); }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 7px 14px; cursor: pointer; font: 600 13px var(--f-h); }
+.pill[aria-pressed="true"] { background: var(--choc); color: var(--cream); border-color: var(--choc); }
+.row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin: 14px 0; }
+.muted { color: var(--ink-2); } .small { font-size: 13px; }
+.grid { display: grid; gap: 12px; }
+.kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; min-width: 0; }
+.kpi .label { font: 500 11px var(--f-m); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.kpi .num { font: 600 34px/1.1 var(--f-h); margin: 6px 0 2px; font-variant-numeric: tabular-nums; }
+.kpi .sub { font-size: 13px; color: var(--ink-2); }
+.trend.up { color: var(--good); } .trend.down { color: var(--bad); }
+h2 { font: 600 16px var(--f-h); margin: 0 0 12px; }
+.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.bars li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; font-size: 14px; }
+.bars .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bars .val { font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.bars .track { grid-column: 1 / -1; height: 6px; border-radius: 99px; background: rgba(240,160,32,.14); overflow: hidden; }
+.bars .track span { display: block; height: 100%; border-radius: 99px; background: var(--grad-gold); }
+.split { display: flex; height: 14px; border-radius: 99px; overflow: hidden; background: rgba(26,20,9,.06); margin: 10px 0 8px; }
+.split span:first-child { background: var(--good); } .split span:nth-child(2) { background: var(--gold); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--ink-2); }
+.legend b { color: var(--ink); }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.chart svg { width: 100%; height: 170px; display: block; }
+.chart .axis { font: 500 10px var(--f-m); fill: var(--ink-3); }
+.note { background: rgba(240,160,32,.1); border: 1px solid rgba(240,160,32,.3); border-radius: 12px; padding: 10px 14px; font-size: 13px; color: var(--ink-2); }
+.empty { color: var(--ink-3); font-size: 14px; }
+.btn { border: 0; border-radius: 999px; padding: 10px 18px; cursor: pointer; font: 600 14px var(--f-h); background: var(--grad-gold); color: var(--choc); }
+.btn.dark { background: var(--choc); color: var(--cream); }
+.btn:disabled { opacity: .6; cursor: default; }
+.signin { max-width: 26rem; margin: 12vh auto; text-align: center; }
+.signin h1 { font: 600 24px var(--f-h); margin: 0 0 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font: 500 11px var(--f-m); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+td.email { word-break: break-all; font-weight: 600; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 99px; background: rgba(240,160,32,.14); color: var(--gold-ink); margin: 0 4px 4px 0; white-space: nowrap; }
+.tag.opptiq { background: rgba(31,122,74,.12); color: var(--good); }
+.tablewrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; }
+.filters input, .filters select { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 9px 14px; min-width: 0; }
+.filters input { flex: 1 1 14rem; }
+.pager { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 14px 0 40px; font-size: 13px; }
+.pager button { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.pager button:disabled { opacity: .4; cursor: default; }
+.sitelink { font-size: 13px; color: var(--gold-ink); background: none; border: 0; padding: 0; cursor: pointer; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+[hidden] { display: none !important; }
+footer { padding: 24px 0 40px; font-size: 12px; color: var(--ink-3); }
+@media (max-width: 760px) {
+  .kpis, .two, .three { grid-template-columns: minmax(0, 1fr); }
+  .kpi .num { font-size: 28px; }
+  .mcol-hide { display: none; }
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand">Victoria Olamide <i>Admin</i></div>
+  <button class="ghost" id="signout" hidden>Sign out</button>
+</div></header>
+
+<main class="wrap">
+  <section class="signin" id="signin" hidden>
+    <h1>Your admin hub</h1>
+    <p class="muted">Visitor stats for all your websites and your full email list. Sign in with your Opptiq admin account to continue.</p>
+    <p><a class="btn" id="signin-btn" href="https://opptiq.victoriaolamide.com/api/site-admin/handoff">Sign in with Opptiq</a></p>
+    <p class="small muted" id="signin-msg"></p>
+  </section>
+
+  <div id="app" hidden>
+    <nav class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-tab="visitors">Visitors</button>
+      <button role="tab" aria-selected="false" data-tab="emails">Email list <span id="email-count"></span></button>
+    </nav>
+
+    <section id="tab-visitors">
+      <div class="row">
+        <div class="pills" id="site-pills">
+          <button class="pill" data-site="all" aria-pressed="true">All sites</button>
+          <button class="pill" data-site="creataws" aria-pressed="false">Creataws</button>
+          <button class="pill" data-site="personal" aria-pressed="false">Personal</button>
+          <button class="pill" data-site="opptiq" aria-pressed="false">Opptiq</button>
+        </div>
+        <span class="small muted" id="site-url"></span>
+      </div>
+      <div class="grid kpis" id="kpis"></div>
+      <div class="row"><span class="small muted" id="site-emails"></span></div>
+      <div class="card chart"><h2>Visitors per day <span class="small muted">(last 30 days, Lagos time)</span></h2><div id="chart"></div></div>
+      <div class="row">
+        <h2 style="margin:0">Who visited</h2>
+        <div class="pills" id="win-pills">
+          <button class="pill" data-days="1" aria-pressed="false">24 hours</button>
+          <button class="pill" data-days="7" aria-pressed="false">7 days</button>
+          <button class="pill" data-days="30" aria-pressed="true">30 days</button>
+        </div>
+      </div>
+      <div class="grid two">
+        <div class="card"><h2>Nigeria or abroad</h2><div id="split"></div></div>
+        <div class="card"><h2>Devices</h2><ul class="bars" id="devices"></ul></div>
+        <div class="card"><h2>Countries</h2><ul class="bars" id="countries"></ul></div>
+        <div class="card"><h2>Cities</h2><ul class="bars" id="cities"></ul></div>
+        <div class="card"><h2>Where they came from</h2><ul class="bars" id="referrers"></ul></div>
+        <div class="card"><h2>Top pages</h2><ul class="bars" id="pages"></ul></div>
+        <div class="card"><h2>Browsers</h2><ul class="bars" id="browsers"></ul></div>
+        <div class="card"><h2>Operating systems</h2><ul class="bars" id="systems"></ul></div>
+      </div>
+      <p class="note" style="margin-top:12px">Visitors are counted anonymously: one random id per browser, country and city from the internet connection. No names or IP addresses are stored. Gender and age can't be seen from a website visit (LinkedIn knows them only because members fill in their profiles).</p>
+    </section>
+
+    <section id="tab-emails" hidden>
+      <div class="row">
+        <div class="filters">
+          <input type="search" id="q" placeholder="Search email or name" aria-label="Search email or name" />
+          <select id="src" aria-label="Filter by source"><option value="">All sources</option></select>
+        </div>
+        <button class="btn" id="csv">Download CSV</button>
+      </div>
+      <p class="small muted" id="list-summary"></p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Email</th><th>First name</th><th>Source</th><th class="mcol-hide">Added</th><th class="mcol-hide">Note</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+      <div class="pager"><button id="prev">Previous</button><span id="page"></span><button id="next">Next</button></div>
+    </section>
+  </div>
+</main>
+<footer class="wrap">Private page. Data from Opptiq's database, updated live.</footer>
+
+<script>
+(function () {
+  "use strict";
+  var API = "https://opptiq.victoriaolamide.com/api/site-admin";
+  var KEY = "vo_admin_pass";
+  var SITES = { creataws: "creataws.victoriaolamide.com", personal: "victoriaolamide.com", opptiq: "opptiq.victoriaolamide.com" };
+  var state = { site: "all", days: 30, list: null, page: 0, per: 100, filtered: [] };
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return Number(n || 0).toLocaleString("en-GB"); };
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var regionNames = null;
+  try { regionNames = new Intl.DisplayNames(["en"], { type: "region" }); } catch (e) {}
+  function country(code) { if (!code) return "Unknown"; try { return regionNames ? regionNames.of(code) : code; } catch (e) { return code; } }
+  function flag(code) { return code && code.length === 2 ? String.fromCodePoint.apply(null, code.toUpperCase().split("").map(function (c) { return 127397 + c.charCodeAt(0); })) + " " : ""; }
+
+  // The pass arrives in the URL fragment from Opptiq, then lives in this browser for up to 12 hours.
+  var pass = null;
+  var m = location.hash.match(/pass=([^&]+)/);
+  if (m) { pass = decodeURIComponent(m[1]); try { localStorage.setItem(KEY, pass); } catch (e) {} history.replaceState(null, "", location.pathname); }
+  if (!pass) { try { pass = localStorage.getItem(KEY); } catch (e) {} }
+
+  function signedOut(msg) {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    pass = null;
+    $("app").hidden = true; $("signout").hidden = true; $("signin").hidden = false;
+    $("signin-msg").textContent = msg || "";
+  }
+  function api(path) {
+    return fetch(API + path, { headers: { authorization: "Bearer " + pass }, cache: "no-store" }).then(function (r) {
+      if (r.status === 401) { signedOut("Your sign-in has expired. Sign in again."); throw new Error("signed_out"); }
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    });
+  }
+  $("signout").addEventListener("click", function () { signedOut("You're signed out."); });
+
+  // ----- tabs -----
+  document.querySelectorAll("[data-tab]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll("[data-tab]").forEach(function (x) { x.setAttribute("aria-selected", String(x === b)); });
+      $("tab-visitors").hidden = b.dataset.tab !== "visitors";
+      $("tab-emails").hidden = b.dataset.tab !== "emails";
+      if (b.dataset.tab === "emails") renderList();
+    });
+  });
+  function press(groupId, attr, value) {
+    document.querySelectorAll("#" + groupId + " .pill").forEach(function (p) { p.setAttribute("aria-pressed", String(p.dataset[attr] === String(value))); });
+  }
+  document.querySelectorAll("#site-pills .pill").forEach(function (p) {
+    p.addEventListener("click", function () { state.site = p.dataset.site; press("site-pills", "site", state.site); loadStats(); siteEmails(); });
+  });
+  document.querySelectorAll("#win-pills .pill").forEach(function (p) {
+    p.addEventListener("click", function () { state.days = Number(p.dataset.days); press("win-pills", "days", state.days); loadStats(); });
+  });
+
+  // ----- visitors -----
+  function trend(now, before) {
+    if (!before) return now ? '<span class="trend up">new</span>' : "";
+    var pct = Math.round(((now - before) / before) * 100);
+    return '<span class="trend ' + (pct >= 0 ? "up" : "down") + '">' + (pct >= 0 ? "+" : "") + pct + "%</span> vs the period before";
+  }
+  function bars(id, items, label, value) {
+    var el = $(id);
+    if (!items || !items.length) { el.innerHTML = '<li class="empty">No visits yet in this period.</li>'; return; }
+    var max = Math.max.apply(null, items.map(value)) || 1;
+    el.innerHTML = items.map(function (it) {
+      var v = value(it);
+      return '<li><span class="name">' + label(it) + '</span><span class="val">' + fmt(v) + '</span><span class="track"><span style="width:' + Math.max(3, (v / max) * 100) + '%"></span></span></li>';
+    }).join("");
+  }
+  function chart(daily) {
+    var W = 720, H = 170, P = 22, n = daily.length, max = Math.max(1, Math.max.apply(null, daily.map(function (d) { return d.visitors; })));
+    var bw = (W - P) / n;
+    var out = '<svg viewBox="0 0 ' + W + " " + H + '" preserveAspectRatio="none" role="img" aria-label="Visitors per day">';
+    out += '<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0a020"/><stop offset="1" stop-color="#d9781a"/></linearGradient></defs>';
+    daily.forEach(function (d, i) {
+      var h = (d.visitors / max) * (H - P - 14);
+      out += '<rect x="' + (P + i * bw + 1.5) + '" y="' + (H - P - h) + '" width="' + Math.max(2, bw - 3) + '" height="' + Math.max(h, d.visitors ? 2 : 0) + '" rx="3" fill="url(#g)"><title>' + d.day + ": " + d.visitors + " visitors, " + d.views + " page views</title></rect>";
+    });
+    out += '<text class="axis" x="0" y="12">' + fmt(max) + '</text><text class="axis" x="0" y="' + (H - P) + '">0</text>';
+    [0, Math.floor(n / 2), n - 1].forEach(function (i) {
+      var d = new Date(daily[i].day + "T12:00:00");
+      out += '<text class="axis" text-anchor="middle" x="' + (P + i * bw + bw / 2) + '" y="' + (H - 6) + '">' + d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }) + "</text>";
+    });
+    $("chart").innerHTML = out + "</svg>";
+  }
+  function loadStats() {
+    $("site-url").textContent = state.site === "all" ? "Creataws, victoriaolamide.com and Opptiq together" : SITES[state.site];
+    api("/stats?site=" + state.site + "&days=" + state.days).then(function (s) {
+      var t = s.totals;
+      $("kpis").innerHTML = [["Past 24 hours", "24h"], ["Past 7 days", "7d"], ["Past 30 days", "30d"]].map(function (k) {
+        return '<div class="card kpi"><div class="label">' + k[0] + '</div><div class="num">' + fmt(t["visitors_" + k[1]]) + '</div><div class="sub">visitors · ' + fmt(t["views_" + k[1]]) + " page views</div><div class=\"sub\">" + trend(t["visitors_" + k[1]], t["prev_visitors_" + k[1]]) + "</div></div>";
+      }).join("");
+      chart(s.daily);
+      var total = s.nigeria + s.abroad + s.unknown_country;
+      $("split").innerHTML = total
+        ? '<div class="split"><span style="width:' + (s.nigeria / total) * 100 + '%"></span><span style="width:' + (s.abroad / total) * 100 + '%"></span></div><div class="legend"><span><i class="dot" style="background:var(--good)"></i>In Nigeria <b>' + fmt(s.nigeria) + "</b> (" + Math.round((s.nigeria / total) * 100) + '%)</span><span><i class="dot" style="background:var(--gold)"></i>Outside Nigeria <b>' + fmt(s.abroad) + "</b> (" + Math.round((s.abroad / total) * 100) + "%)</span>" + (s.unknown_country ? "<span>Unknown " + fmt(s.unknown_country) + "</span>" : "") + "</div>"
+        : '<p class="empty">No visits yet in this period.</p>';
+      bars("countries", s.countries, function (c) { return flag(c.country) + esc(country(c.country)); }, function (c) { return c.visitors; });
+      bars("cities", s.cities, function (c) { return esc(c.city) + ' <span class="muted small">' + esc(country(c.country)) + "</span>"; }, function (c) { return c.visitors; });
+      bars("devices", s.devices, function (c) { return esc(c.name); }, function (c) { return c.visitors; });
+      bars("browsers", s.browsers, function (c) { return esc(c.name); }, function (c) { return c.visitors; });
+      bars("systems", s.systems, function (c) { return esc(c.name); }, function (c) { return c.visitors; });
+      bars("referrers", s.referrers, function (c) { return esc(c.name); }, function (c) { return c.visitors; });
+      bars("pages", s.pages, function (c) { return esc(c.name); }, function (c) { return c.views; });
+    }).catch(function (e) { if (e.message !== "signed_out") $("kpis").innerHTML = '<p class="empty">Could not load the stats (' + esc(e.message) + "). Try refreshing.</p>"; });
+  }
+
+  // ----- email list -----
+  var SITE_NAME = { creataws: "Creataws", opptiq: "Opptiq", personal: "victoriaolamide.com" };
+  function siteEmails() {
+    var el = $("site-emails");
+    if (!state.list || state.site === "all" || state.site === "personal") { el.innerHTML = state.list && state.site === "all" ? fmt(state.list.length) + " people on your email list" : ""; return; }
+    var n = state.list.filter(function (r) { return r.sites.indexOf(state.site) > -1; }).length;
+    el.innerHTML = fmt(n) + " emails from " + SITE_NAME[state.site] + ' · <button class="sitelink" id="see-site">See them in Email list</button>';
+    $("see-site").addEventListener("click", function () {
+      $("src").value = "site:" + state.site; state.page = 0;
+      document.querySelector('[data-tab="emails"]').click();
+    });
+  }
+  function loadList() {
+    return api("/emails").then(function (d) {
+      state.list = d.rows;
+      $("email-count").textContent = "(" + fmt(d.rows.length) + ")";
+      var sources = {};
+      d.rows.forEach(function (r) { r.sources.forEach(function (s) { sources[s] = (sources[s] || 0) + 1; }); });
+      $("src").innerHTML = '<option value="">All sources</option><option value="site:opptiq">Everything from Opptiq</option><option value="site:creataws">Everything from Creataws forms</option>' +
+        Object.keys(sources).sort().map(function (s) { return '<option value="' + esc(s) + '">' + esc(s) + " (" + fmt(sources[s]) + ")</option>"; }).join("");
+      siteEmails();
+      if (!$("tab-emails").hidden) renderList();
+    });
+  }
+  function applyFilter() {
+    var q = $("q").value.trim().toLowerCase(), src = $("src").value;
+    state.filtered = (state.list || []).filter(function (r) {
+      if (src.indexOf("site:") === 0) { if (r.sites.indexOf(src.slice(5)) < 0) return false; }
+      else if (src && r.sources.indexOf(src) < 0) return false;
+      return !q || r.email.indexOf(q) > -1 || (r.first_name || "").toLowerCase().indexOf(q) > -1;
+    });
+  }
+  function renderList() {
+    if (!state.list) { $("rows").innerHTML = '<tr><td colspan="5" class="empty">Loading…</td></tr>'; return; }
+    applyFilter();
+    var pages = Math.max(1, Math.ceil(state.filtered.length / state.per));
+    state.page = Math.min(state.page, pages - 1);
+    var slice = state.filtered.slice(state.page * state.per, (state.page + 1) * state.per);
+    $("list-summary").textContent = fmt(state.filtered.length) + (state.filtered.length === state.list.length ? " people" : " of " + fmt(state.list.length) + " people") + ". New Opptiq sign-ups and new form responses are added automatically.";
+    $("rows").innerHTML = slice.length ? slice.map(function (r) {
+      return '<tr><td class="email">' + esc(r.email) + "</td><td>" + esc(r.first_name) + "</td><td>" +
+        r.sources.map(function (s) { return '<span class="tag' + (/^Opptiq/.test(s) ? " opptiq" : "") + '">' + esc(s) + "</span>"; }).join("") +
+        '</td><td class="mcol-hide">' + esc((r.added || "").slice(0, 10)) + '</td><td class="mcol-hide small muted">' + esc(r.note) + "</td></tr>";
+    }).join("") : '<tr><td colspan="5" class="empty">No one matches.</td></tr>';
+    $("page").textContent = "Page " + (state.page + 1) + " of " + pages;
+    $("prev").disabled = state.page === 0; $("next").disabled = state.page >= pages - 1;
+  }
+  $("q").addEventListener("input", function () { state.page = 0; renderList(); });
+  $("src").addEventListener("change", function () { state.page = 0; renderList(); });
+  $("prev").addEventListener("click", function () { state.page--; renderList(); });
+  $("next").addEventListener("click", function () { state.page++; renderList(); });
+  // Downloads what the table shows (everything when no filter is set).
+  $("csv").addEventListener("click", function () {
+    applyFilter();
+    var cell = function (v) { v = String(v == null ? "" : v); if (/^[=+\-@\t\r]/.test(v)) v = "'" + v; return '"' + v.replace(/"/g, '""') + '"'; };
+    var lines = [["Email", "First name", "Source", "Added", "Note"].map(cell).join(",")].concat(state.filtered.map(function (r) {
+      return [r.email, r.first_name, r.sources.join("; "), (r.added || "").slice(0, 10), r.note].map(cell).join(",");
+    }));
+    var blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/csv;charset=utf-8" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "victoria-email-list-" + new Date().toISOString().slice(0, 10) + ".csv";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+  });
+
+  // ----- start -----
+  if (!pass) { signedOut(""); return; }
+  $("signin").hidden = true; $("app").hidden = false; $("signout").hidden = false;
+  loadStats();
+  loadList().catch(function (e) { if (e.message !== "signed_out") $("list-summary").textContent = "Could not load the email list (" + e.message + ")."; });
+})();
+</script>
+</body>
+</html>
