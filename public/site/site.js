@@ -363,17 +363,35 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
 // ===== Admin link, for Victoria only (13 Nov 2026) =====
 // After she signs in at /admin, this browser keeps a signed pass. Only then is "Admin" added to the menu,
 // so visitors never see it. The pass is checked again by the server on every admin request.
+// Checked on load, when the page is shown again from the phone's back/forward memory, and when the tab
+// comes back into view, so signing in on /admin and returning always shows it (www redirects to the main
+// address in vercel.json, so both share one sign-in).
 (function () {
-  try {
-    var pass = localStorage.getItem("vo_admin_pass");
-    if (!pass) return;
-    var payload = JSON.parse(atob(pass.split(".")[0].replace(/-/g, "+").replace(/_/g, "/")));
-    if (!payload || !(payload.exp > Date.now())) return;
+  function signedIn() {
+    try {
+      var pass = localStorage.getItem("vo_admin_pass");
+      if (!pass) return false;
+      var b64 = pass.split(".")[0].replace(/-/g, "+").replace(/_/g, "/");
+      while (b64.length % 4) b64 += "=";
+      var payload = JSON.parse(atob(b64));
+      return !!payload && payload.exp > Date.now();
+    } catch (e) {
+      return false;
+    }
+  }
+  function sync() {
     var list = document.getElementById("links");
-    if (!list || list.querySelector("[data-admin-link]")) return;
+    if (!list) return;
+    var existing = list.querySelector("[data-admin-item]");
+    if (!signedIn()) { if (existing) existing.remove(); return; }
+    if (existing) return;
     var li = document.createElement("li");
+    li.setAttribute("data-admin-item", "");
     li.innerHTML = '<a href="/admin/" data-admin-link>Admin</a>';
-    var cta = list.querySelector(".cta");
-    list.insertBefore(li, cta || null);
-  } catch (e) {}
+    list.insertBefore(li, list.querySelector(".cta"));
+  }
+  sync();
+  window.addEventListener("pageshow", sync);
+  window.addEventListener("storage", sync);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) sync(); });
 })();
