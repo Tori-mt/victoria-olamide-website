@@ -359,3 +359,21 @@ document.querySelectorAll("[data-home]").forEach(function (a) {
     }
   } catch (e) {}
 })();
+
+// ===== Admin link, for Victoria only (13 Nov 2026) =====
+// After she signs in at /admin, this browser keeps a signed pass. Only then is "Admin" added to the menu,
+// so visitors never see it. The pass is checked again by the server on every admin request.
+(function () {
+  try {
+    var pass = localStorage.getItem("vo_admin_pass");
+    if (!pass) return;
+    var payload = JSON.parse(atob(pass.split(".")[0].replace(/-/g, "+").replace(/_/g, "/")));
+    if (!payload || !(payload.exp > Date.now())) return;
+    var list = document.getElementById("links");
+    if (!list || list.querySelector("[data-admin-link]")) return;
+    var li = document.createElement("li");
+    li.innerHTML = '<a href="/admin/" data-admin-link>Admin</a>';
+    var cta = list.querySelector(".cta");
+    list.insertBefore(li, cta || null);
+  } catch (e) {}
+})();

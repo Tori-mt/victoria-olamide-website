@@ -83,6 +83,11 @@ td.email { word-break: break-all; font-weight: 600; }
 .pager button:disabled { opacity: .4; cursor: default; }
 .sitelink { font-size: 13px; color: var(--gold-ink); background: none; border: 0; padding: 0; cursor: pointer; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 [hidden] { display: none !important; }
+.loginform { display: flex; flex-direction: column; gap: 10px; margin: 18px 0 6px; }
+.loginform input { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 12px 16px; text-align: center; font-size: 16px; }
+.loginform #login-code { font: 600 22px var(--f-m); letter-spacing: .3em; text-transform: uppercase; }
+.loginform .sitelink { align-self: center; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 footer { padding: 24px 0 40px; font-size: 12px; color: var(--ink-3); }
 @media (max-width: 760px) {
   .kpis, .two, .three { grid-template-columns: minmax(0, 1fr); }
@@ -93,15 +98,25 @@ footer { padding: 24px 0 40px; font-size: 12px; color: var(--ink-3); }
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <div class="brand">Victoria Olamide <i>Admin</i></div>
+  <a class="brand" href="/" style="color:inherit;text-decoration:none" title="Back to the website">Victoria Olamide <i>Admin</i></a>
   <button class="ghost" id="signout" hidden>Sign out</button>
 </div></header>
 
 <main class="wrap">
   <section class="signin" id="signin" hidden>
     <h1>Your admin hub</h1>
-    <p class="muted">Visitor stats for all your websites and your full email list. Sign in with your Opptiq admin account to continue.</p>
-    <p><a class="btn" id="signin-btn" href="https://opptiq.victoriaolamide.com/api/site-admin/handoff">Sign in with Opptiq</a></p>
+    <p class="muted">Visitor stats for all your websites and your full email list. Enter your email and we'll send you a sign-in code.</p>
+    <form id="send-form" class="loginform" autocomplete="on">
+      <label class="sr" for="login-email">Your email</label>
+      <input id="login-email" type="email" name="email" autocomplete="email" placeholder="Your email" required />
+      <button class="btn" type="submit" id="send-btn">Email me a code</button>
+    </form>
+    <form id="code-form" class="loginform" hidden autocomplete="off">
+      <label class="sr" for="login-code">Sign-in code</label>
+      <input id="login-code" name="code" inputmode="text" autocapitalize="characters" maxlength="8" placeholder="6-character code" required />
+      <button class="btn" type="submit" id="code-btn">Sign in</button>
+      <button class="sitelink" type="button" id="restart">Use a different email</button>
+    </form>
     <p class="small muted" id="signin-msg"></p>
   </section>
 
@@ -179,7 +194,34 @@ footer { padding: 24px 0 40px; font-size: 12px; color: var(--ink-3); }
   function country(code) { if (!code) return "Unknown"; try { return regionNames ? regionNames.of(code) : code; } catch (e) { return code; } }
   function flag(code) { return code && code.length === 2 ? String.fromCodePoint.apply(null, code.toUpperCase().split("").map(function (c) { return 127397 + c.charCodeAt(0); })) + " " : ""; }
 
-  // The pass arrives in the URL fragment from Opptiq, then lives in this browser for up to 12 hours.
+  // Sign-in on this website (13 Nov 2026): email, then a one-time code, then a 30-day pass kept in this
+  // browser. site.js reads the same pass to show the Admin link in the menu on this device only.
+  var challenge = null;
+  function msg(t) { $("signin-msg").textContent = t || ""; }
+  function post(body) {
+    return fetch(API + "/login", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || ("HTTP " + r.status)); return j; }); });
+  }
+  $("send-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = $("login-email").value.trim();
+    $("send-btn").disabled = true; msg("Sending…");
+    post({ step: "send", email: email }).then(function (j) {
+      challenge = j.challenge;
+      $("send-form").hidden = true; $("code-form").hidden = false; $("login-code").focus();
+      msg("If that email can sign in, a code is on its way. Check your inbox (and spam). It works for 10 minutes.");
+    }).catch(function (err) { msg(err.message); }).then(function () { $("send-btn").disabled = false; });
+  });
+  $("code-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    $("code-btn").disabled = true; msg("Checking…");
+    post({ step: "verify", challenge: challenge, code: $("login-code").value }).then(function (j) {
+      try { localStorage.setItem(KEY, j.pass); } catch (er) {}
+      location.reload();
+    }).catch(function (err) { msg(err.message); $("code-btn").disabled = false; });
+  });
+  $("restart").addEventListener("click", function () { challenge = null; $("code-form").hidden = true; $("send-form").hidden = false; $("login-code").value = ""; msg(""); });
+
   var pass = null;
   var m = location.hash.match(/pass=([^&]+)/);
   if (m) { pass = decodeURIComponent(m[1]); try { localStorage.setItem(KEY, pass); } catch (e) {} history.replaceState(null, "", location.pathname); }
